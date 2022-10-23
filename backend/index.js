@@ -1,17 +1,15 @@
-const allowurl = '/data/allow.json';
-const blockurl = '/data/block.json';
+import allow from "./data/allow.json"
+import block from "./data/block.json"
 
 async function gatherResponse(allow, block, barcode) {
     let barcode_company = barcode.slice(0, 7);
-    allow_dict = await JSON.parse(allow);
-    block_dict = await JSON.parse(block);
-    allow_company = allow_dict["compnay"];
-    allow_product = allow_dict["product"];
-    block_company = block_dict["compnay"];
-    block_product = block_dict["product"];
-
+    const allow_dict = await JSON.parse(allow.text());
+    const block_dict = await JSON.parse(block.text());
+    const allow_company = allow_dict.company;
+    const allow_product = allow_dict.product;
+    const block_company = block_dict.company;
+    const block_product = block_dict.product;
     var res = {};
-
     if (barcode_company in allow_company) {
         res["type"] = "company";
         res["content"] = allow_company[barcode_company];
@@ -20,37 +18,26 @@ async function gatherResponse(allow, block, barcode) {
         res["type"] = "product";
         res["content"] = allow_product[barcode];
     }
-    if (barcode_company in block_company || barcode in block_product)  {
+    if (barcode_company in block_company || barcode in block_product) {
         res = {};
     }
-    
-    return res;
+    return JSON.stringify(res);
 }
 
 async function handleRequest(request) {
-    const init = {
-        body: JSON.stringify(body),
-        method: 'POST',
+    const init_json = {
         headers: {
-          'content-type': 'application/json;charset=UTF-8',
+            'content-type': 'application/json;charset=UTF-8',
         },
     };
-
     const { searchParams } = new URL(request.url);
-    let barcode = searchParams.get('barcode');
-    
-    const allow = await fetch(allowurl, init);
-    const block = await fetch(blockurl, init);
-
+    let barcode = searchParams.get("barcode");
     const results = await gatherResponse(allow, block, barcode);
-    return new Response(results, init);
+    console.log(results);
+    return new Response(results, init_json);
+    // return new Response(allow, init);
 }
 
-/**
- * Fetch and log a given request object
- * @param {Request} request
- */
-
-addEventListener('fetch', event => {
+addEventListener("fetch", (event) => {
     return event.respondWith(handleRequest(event.request));
 });
