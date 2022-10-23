@@ -3,12 +3,10 @@ import block from "./data/block.json"
 
 async function gatherResponse(allow, block, barcode) {
     let barcode_company = barcode.slice(0, 7);
-    const allow_dict = await JSON.parse(allow.text());
-    const block_dict = await JSON.parse(block.text());
-    const allow_company = allow_dict.company;
-    const allow_product = allow_dict.product;
-    const block_company = block_dict.company;
-    const block_product = block_dict.product;
+    const allow_company = allow.company;
+    const allow_product = allow.product;
+    const block_company = block.company;
+    const block_product = block.product;
     var res = {};
     if (barcode_company in allow_company) {
         res["type"] = "company";
