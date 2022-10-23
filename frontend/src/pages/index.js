@@ -113,6 +113,9 @@ class Index extends React.Component {
                     this.onDetect(result)
                 }).catch((err) => {
                     console.error(err)
+                    this.setState({
+                        streamNotSupported: true
+                    })
                     // document.getElementById('result').textContent = err
                     // this.onDetect(result)
                 })
@@ -126,6 +129,9 @@ class Index extends React.Component {
             })
             .catch((err) => {
                 console.error(err)
+                this.setState({
+                    streamNotSupported: true
+                })
             })
         // const result = await this.reader.decodeOnceFromVideoDevice(undefined, 'interactive')
         // console.log(result)
