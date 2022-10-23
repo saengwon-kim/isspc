@@ -31,8 +31,8 @@ hints.set(DecodeHintType.TRY_HARDER, true)
 hints.set(DecodeHintType.ASSUME_GS1, true)
 
 const REPORT_TYPE = {
-    'SPC임': 'SPC가 아닌데 SPC라고 떠요',
-    'SPC아님': 'SPC인데 SPC가 아니라고 떠요'
+    'notSPC': 'SPC가 아닌데 SPC라고 떠요',
+    'SPC': 'SPC인데 SPC가 아니라고 떠요'
 }
 
 class Index extends React.Component {
@@ -268,7 +268,7 @@ class Index extends React.Component {
     }
 
     getReportUrl(isSPC, barcode) {
-        const reportType = isSPC ? REPORT_TYPE['SPC아님'] : REPORT_TYPE['SPC임']
+        const reportType = isSPC ? REPORT_TYPE['notSPC'] : REPORT_TYPE['SPC']
         return `https://docs.google.com/forms/d/e/1FAIpQLSdr1TjcPBSri35YsGrqcraFvvcDMHfxQecyDqA7xbK8feNZ-g/viewform?usp=pp_url&entry.187227653=${reportType}&entry.1960789934=${barcode}`
     }
 }
