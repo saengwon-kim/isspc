@@ -1,0 +1,13 @@
+name: deploy
+on: [push]
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    name: backend
+    steps:
+      - uses: actions/checkout@v2
+      - name: Publish
+        uses: cloudflare/wrangler-action@2.0.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          workingDirectory: 'backend'
