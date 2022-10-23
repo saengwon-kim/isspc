@@ -25,8 +25,9 @@ async function gatherResponse(allow, block, barcode) {
 async function handleRequest(request) {
     const init_json = {
         headers: {
-            'content-type': 'application/json;charset=UTF-8',
-        },
+            "content-type": "application/json;charset=UTF-8",
+            "Access-Control-Allow-Origin": "https://isspc.pages.dev"
+        }
     };
     const { searchParams } = new URL(request.url);
     let barcode = searchParams.get("barcode");
