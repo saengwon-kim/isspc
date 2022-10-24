@@ -1,7 +1,7 @@
 import './index.styl'
 import React, { useState, useRef } from 'react'
 import { Helmet } from 'react-helmet'
-import { BrowserBarcodeReader, DecodeHintType } from '@zxing/library'
+import { DecodeHintType, BrowserMultiFormatReader } from '@zxing/library'
 import activeConfetti from '../lib/confetti.js'
 // import { setWebAppManifest } from '../lib/dynamicMenifest';
 
@@ -37,9 +37,10 @@ const REPORT_TYPE = {
 
 class Index extends React.Component {
 
-    reader = new BrowserBarcodeReader(
-        300, hints
-    )
+    reader = new BrowserMultiFormatReader(hints, 300)
+    // reader = new BrowserBarcodeReader(
+    //     300, hints
+    // )
 
     state = {
         entered: '',
@@ -50,6 +51,8 @@ class Index extends React.Component {
     }
 
     confettiBox = React.createRef()
+
+    scale = 1.0
 
     async _isSPC(code) {
         const response = await fetch(`https://isspc-back.saengwon-kim.workers.dev/?barcode=${code}`)
@@ -87,45 +90,97 @@ class Index extends React.Component {
         await this.fetchResult(code);
     }
 
+    async setCaptureCanvas() {
+        this.reader.pads = 0.0;
+        this.reader.widthRatio = 1.0;
+        this.reader.heightRatio = 1.0;
+        this.reader.createCaptureCanvas = function(mediaElement) {
+            const canvasElement = document.querySelector('#reader-canvas');
+            const videoWidth = mediaElement.videoWidth;
+            const videoHeight = mediaElement.videoHeight;
+            const offsetWidth = mediaElement.offsetWidth;
+            const offsetHeight = mediaElement.offsetHeight;
+            this.videoWidth = videoWidth;
+            this.videoHeight = videoHeight;
+            this.offsetWidth = offsetWidth;
+            this.offsetHeight = offsetHeight;
+            this.widthRatio = videoWidth / offsetWidth;
+            this.heightRatio = videoHeight / offsetHeight;
+            const canvasStyle = "top: 0px; left: 0px; width:" + offsetWidth + "px; height:"+ offsetHeight + "px";
+            canvasElement.style = canvasStyle;
+            canvasElement.width = offsetWidth;
+            canvasElement.height = offsetHeight;
+            return canvasElement;
+        };
+        this.reader.drawFrameOnCanvas = function(srcElement) {
+            var canvasElement = this.getCaptureCanvas();
+            var ctx = canvasElement.getContext('2d');
+            let rect = canvasElement.getBoundingClientRect();
+            ctx.drawImage(srcElement, this.pads * this.widthRatio, this.pads * this.heightRatio, canvasElement.width * this.widthRatio, canvasElement.height * this.heightRatio,
+                0, 0, rect.width, rect.height);
+        };
+    }
+
+    async zoomin() {
+        if (this.scale > 0.3) {
+            this.scale -= 0.1
+            const frame = document.querySelector('#reader-frame');
+            const canvasElement = this.reader.getCaptureCanvas();
+            // set position of frame
+            let rect = frame.getBoundingClientRect();
+            const pads = Math.min(rect.width, rect.height) * (1 - this.scale) * 0.5;
+            this.reader.pads = pads;
+            const boxShadow = "inset 0 0 0 " + pads + 'px' + " rgba(0, 0, 0, 0.5)";
+            frame.style.boxShadow = boxShadow;
+            const canvasTop = pads + 'px';
+            const canvasLeft = pads + 'px';
+            const canvasWidth = rect.width - 2 * pads
+            const canvasHeight = rect.height - 2 * pads
+            canvasElement.style = "top:" + canvasTop + "; left:" + canvasLeft;
+            canvasElement.width = canvasWidth;
+            canvasElement.height = canvasHeight;
+        } else {
+            this.scale = 0.3;
+        }
+    }
+
+    async zoomout() {
+        if (this.scale < 1) {
+            this.scale += 0.1
+            const frame = document.querySelector('#reader-frame');
+            const canvasElement = this.reader.getCaptureCanvas();
+            // set position of frame
+            let rect = frame.getBoundingClientRect();
+            const pads = Math.min(rect.width, rect.height) * (1 - this.scale) * 0.5;
+            const boxShadow = "inset 0 0 0 " + pads + 'px' + " rgba(0, 0, 0, 0.5)";
+            frame.style.boxShadow = boxShadow;
+            const canvasTop = pads + 'px';
+            const canvasLeft = pads + 'px';
+            const canvasWidth = rect.width - 2 * pads
+            const canvasHeight = rect.height - 2 * pads
+            canvasElement.style = "top:" + canvasTop + "; left:" + canvasLeft;
+            canvasElement.width = canvasWidth;
+            canvasElement.height = canvasHeight;
+        } else {
+            this.scale = 1.0;
+        }
+    }
+
     async startDetect() {
         let selectedDeviceId;
+
         this.reader.listVideoInputDevices()
             .then((videoInputDevices) => {
-                selectedDeviceId = videoInputDevices[0].deviceId
-                // const sourceSelect = document.getElementById('sourceSelect')
-                // if (videoInputDevices.length > 1) {
-                //     videoInputDevices.forEach((element) => {
-                //         const sourceOption = document.createElement('option')
-                //         sourceOption.text = element.label
-                //         sourceOption.value = element.deviceId
-                //         sourceSelect.appendChild(sourceOption)
-                //     })
-
-                //     sourceSelect.onchange = () => {
-                //         selectedDeviceId = sourceSelect.value;
-                //     }
-
-                //     const sourceSelectPanel = document.getElementById('sourceSelectPanel')
-                //     sourceSelectPanel.style.display = 'block'
-                // }
+                selectedDeviceId = videoInputDevices.slice(-1)[0].deviceId
                 this.reader.decodeOnceFromVideoDevice(selectedDeviceId, 'interactive').then((result) => {
-                    // document.getElementById('result').textContent = result.text
                     this.onDetect(result)
                 }).catch((err) => {
                     console.error(err)
                     this.setState({
                         streamNotSupported: true
                     })
-                    // document.getElementById('result').textContent = err
-                    // this.onDetect(result)
                 })
                 console.log(`Started continous decode from camera with id ${selectedDeviceId}`)
-                // document.getElementById('resetButton').addEventListener('click', () => {
-                //     document.getElementById('result').textContent = '';
-                //     this.reader.reset();
-                //     console.log('Reset.')
-                // })
-
             })
             .catch((err) => {
                 console.error(err)
@@ -133,9 +188,6 @@ class Index extends React.Component {
                     streamNotSupported: true
                 })
             })
-        // const result = await this.reader.decodeOnceFromVideoDevice(undefined, 'interactive')
-        // console.log(result)
-        // this.onDetect(result)
     }
 
     reset = () => {
@@ -146,19 +198,15 @@ class Index extends React.Component {
             itemInfo: null,
         }, async () => {
             await this.startDetect()
+            await this.setCaptureCanvas()
         })
     }
 
     async componentDidMount() {
-        // setTimeout(() => {
-        //     setWebAppManifest({
-        //         userAgent: navigator.userAgent,
-        //         selector: '#dynamic-manifest'
-        //     })
-        // }, 1)
 
         try {
             await this.startDetect()
+            await this.setCaptureCanvas()
         } catch (error) {
             console.log(error)
             this.setState({
@@ -213,12 +261,16 @@ class Index extends React.Component {
                                     <button type="submit" className="submit-btn" disabled={this.state.entered.length < 13}>찾기</button>
                                 </form> :
                                 <div className="reader">
-                                    {/* <div id="sourceSelectPanel">
-                                        <label htmlFor="sourceSelect">카메라 변경:</label>
-                                        <select id="sourceSelect"></select>
-                                    </div> */}
                                     <p>아래 화면에 바코드가 나오도록 비춰주세요</p>
-                                    <video ref={this.interactive} id="interactive" className="viewport" />
+                                    <div className="reader-inner">
+                                    <div className="reader-video" id="reader-video">
+                                        <video ref={this.interactive} id="interactive" className="viewport" />
+                                    </div>
+                                    <div id="reader-frame"></div>
+                                    </div>
+                                    <canvas id="reader-canvas" />
+                                    <button className="zoom-btn" onClick={this.zoomin.bind(this)}>+</button>
+                                    <button className="zoom-btn" onClick={this.zoomout.bind(this)}>-</button>
                                 </div>
                             }
                         </section> :
