@@ -4,6 +4,8 @@ import { Helmet } from 'react-helmet'
 import { DecodeHintType, BrowserMultiFormatReader } from '@zxing/library'
 import activeConfetti from './confetti.js'
 import handleRequest from './static_db.js'
+import {Html5Qrcode} from "html5-qrcode"
+import heic2any from "heic2any"
 
 const confettiColors = [
     '#E68F17',
@@ -38,6 +40,7 @@ const REPORT_TYPE = {
 class IsSPC extends React.Component {
 
     reader = new BrowserMultiFormatReader(hints, 300)
+
     initscale = 0.3
     scale = 0.3
 
@@ -73,8 +76,6 @@ class IsSPC extends React.Component {
 
     async fetchResult(code) {
         const { result, info } = await this._isSPC(code)
-        console.log(info)
-        console.log(result)
         this.setState({
             detected: code,
             isSPC: result,
@@ -180,6 +181,33 @@ class IsSPC extends React.Component {
         }
     }
 
+    async DetectFromFile(){
+        const html5QrCode = new Html5Qrcode("uploaded");
+        // File based scanning
+        const fileinput = document.getElementById('reader-input');
+        if (fileinput.files.length == 0) {
+            // No file selected, ignore 
+            return;
+        }
+        var imageFile = fileinput.files[0];
+        const filetype = imageFile.name.split('.').pop();
+        if (filetype.toLowerCase() === 'heic') {
+            let file = fileinput.files[0];
+            let blob = file.slice(0, file.size, 'image/heic'); 
+            const conversionResult = await heic2any({ blob, toType: "image/png" });
+            imageFile = new File([conversionResult], 'converted.png', {type: 'image/png'});
+        }
+        html5QrCode.scanFile(imageFile, false)
+        .then(decodedText => {
+            this.fetchResult(decodedText);
+        })
+        .catch(err => {
+            // failure, handle it.
+            console.log(`Error scanning file. Reason: ${err}`)
+            alert("이미지에서 바코드를 읽을 수 없습니다")
+        });
+    }
+
     async startDetect() {
         var constraintFacingMode = (location.hostname == 'localhost') ? "user" : "environment";
         var constraints = { audio: false, video: 
@@ -258,9 +286,9 @@ class IsSPC extends React.Component {
                                     <label htmlFor="barcode">바코드
                                         <input id="barcode" type="text" pattern="[0-9]*" maxLength="13" value={this.state.entered} onChange={this.handleChange.bind(this)} placeholder="8801068123456" />
                                     </label>
-                                    <button type="submit" className="submit-btn" disabled={this.state.entered.length < 13}>찾기</button>
+                                    <button type="submit" className="submit-btn" disabled={this.state.entered.length < 13}>찾기</button> 또는 <a onClick={this.StartScanner.bind(this)} className="submit-btn">스캔</a> <label htmlFor="reader-input" className="submit-btn">업로드</label><input type="file" id="reader-input" className="image_inputType_file" accept="img/*" onChange={this.DetectFromFile.bind(this)}></input><div id="uploaded" width="300px"></div>
                                 </form>
-                                또는 <a onClick={this.StartScanner.bind(this)}>스캔 시작</a></div> :
+                                </div> :
                                 <div className="reader">
                                     <p>아래 화면에 바코드가 나오도록 비춰주세요</p>
                                     <div className="reader-inner">
@@ -272,11 +300,11 @@ class IsSPC extends React.Component {
                                     <canvas id="reader-canvas" />
                                     <div className="controlBox">
                                         <ul>
-                                            <li><a onClick={this.zoomin.bind(this)}>영역축소</a></li>
-                                            <li><a onClick={this.zoomout.bind(this)}>영역확대</a></li>
+                                            <li><button className="submit-btn" onClick={this.zoomin.bind(this)}>영역축소</button></li>
+                                            <li><button className="submit-btn" onClick={this.zoomout.bind(this)}>영역확대</button></li>
                                         </ul>
                                     </div>
-                                    또는 <a onClick={this.StopScanner.bind(this)}>바코드 직접 입력하기</a>
+                                    <button className="submit-btn" onClick={this.StopScanner.bind(this)}>스캔 멈추기</button>
                                 </div>
                             }
                         </section> :

@@ -14,6 +14,7 @@
     background-color #fff
     border 1px solid #888
     border-radius 12px
+    padding auto
   padding 0 24px
   width 100%
   display flex
@@ -36,11 +37,12 @@
         border 1px solid #888
         box-sizing border-box
         margin-left 6px
-      .submit-btn
-        @extend .btn
-        margin-left 6px
-        padding 10px 12px
-        font-size 0.8rem
+  .submit-btn
+    @extend .btn
+    color #000
+    margin-left 6px
+    padding 5px 6px
+    font-size 0.8rem
   .result
     .message
       text-align center
@@ -147,4 +149,23 @@
 
   .controlBox ul > li {
     display: table-cell;
+  }
+
+  .selectBox ul {
+    display: table;
+    width: 100%;
+    text-align: center;
+  }
+
+  .selectBox ul > li {
+    display: table-cell;
+    text-align: center;
+  }
+
+  #reader-input {
+    display: none;
+  }
+
+  #uploaded {
+    display: none;
   }

@@ -8,7 +8,7 @@ module.exports = {
     author: `Saengwon Kim`,
     siteDescription: 'SPC의 손길이 닿은 제품인지 알아볼 수 있도록 도와주는 페이지입니다!',
     url: 'https://isspc.pages.dev',
-    siteImage: '/icons.png'
+    siteImage: '/logo.png'
   },
   plugins: [
     {
@@ -40,7 +40,7 @@ module.exports = {
         display: `standalone`,
         icons: [
           {
-            src: `/icons.png`,
+            src: `/logo.png`,
             sizes: `512x512`,
             type: `image/png`,
           },
