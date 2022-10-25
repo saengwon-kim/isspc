@@ -106,18 +106,17 @@ class Index extends React.Component {
             this.offsetHeight = offsetHeight;
             this.widthRatio = videoWidth / offsetWidth;
             this.heightRatio = videoHeight / offsetHeight;
-            const canvasStyle = "top: 0px; left: 0px; width:" + offsetWidth + "px; height:"+ offsetHeight + "px";
+            const canvasStyle = "top: 0px; left: 0px; width:" + videoWidth + "px; height:"+ videoHeight + "px";
             canvasElement.style = canvasStyle;
-            canvasElement.width = offsetWidth;
-            canvasElement.height = offsetHeight;
+            canvasElement.width = videoWidth;
+            canvasElement.height = videoHeight;
             return canvasElement;
         };
         this.reader.drawFrameOnCanvas = function(srcElement) {
             var canvasElement = this.getCaptureCanvas();
             var ctx = canvasElement.getContext('2d');
-            let rect = canvasElement.getBoundingClientRect();
-            ctx.drawImage(srcElement, this.pads * this.widthRatio, this.pads * this.heightRatio, canvasElement.width * this.widthRatio, canvasElement.height * this.heightRatio,
-                0, 0, rect.width, rect.height);
+            ctx.drawImage(srcElement, this.pads * this.widthRatio, this.pads * this.heightRatio, canvasElement.width, canvasElement.height,
+                0, 0, canvasElement.width, canvasElement.height);
         };
     }
 
@@ -137,8 +136,8 @@ class Index extends React.Component {
             const canvasWidth = rect.width - 2 * pads
             const canvasHeight = rect.height - 2 * pads
             canvasElement.style = "top:" + canvasTop + "; left:" + canvasLeft;
-            canvasElement.width = canvasWidth;
-            canvasElement.height = canvasHeight;
+            canvasElement.width = canvasWidth * this.reader.widthRatio;
+            canvasElement.height = canvasHeight * this.reader.heightRatio;
         } else {
             this.scale = 0.3;
         }
@@ -159,8 +158,8 @@ class Index extends React.Component {
             const canvasWidth = rect.width - 2 * pads
             const canvasHeight = rect.height - 2 * pads
             canvasElement.style = "top:" + canvasTop + "; left:" + canvasLeft;
-            canvasElement.width = canvasWidth;
-            canvasElement.height = canvasHeight;
+            canvasElement.width = canvasWidth * this.reader.widthRatio;
+            canvasElement.height = canvasHeight * this.reader.heightRatio;
         } else {
             this.scale = 1.0;
         }
