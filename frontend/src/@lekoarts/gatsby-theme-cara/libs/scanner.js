@@ -1,9 +1,9 @@
-import './index.styl'
+import './scanner.styl'
 import React, { useState, useRef } from 'react'
 import { Helmet } from 'react-helmet'
 import { DecodeHintType, BrowserMultiFormatReader } from '@zxing/library'
-import activeConfetti from '../lib/confetti.js'
-// import { setWebAppManifest } from '../lib/dynamicMenifest';
+import activeConfetti from './confetti.js'
+import handleRequest from './static_db.js'
 
 const confettiColors = [
     '#E68F17',
@@ -35,29 +35,27 @@ const REPORT_TYPE = {
     'SPC': 'SPC인데 SPC가 아니라고 떠요'
 }
 
-class Index extends React.Component {
+class IsSPC extends React.Component {
 
     reader = new BrowserMultiFormatReader(hints, 300)
-    // reader = new BrowserBarcodeReader(
-    //     300, hints
-    // )
+    scale = 0.5
 
     state = {
         entered: '',
         detected: '',
         isSPC: null,
         itemInfo: null,
-        streamNotSupported: false
+        streamNotSupported: true
     }
 
     confettiBox = React.createRef()
 
-    scale = 1.0
-
     async _isSPC(code) {
-        const response = await fetch(`https://isspc-back.saengwon-kim.workers.dev/?barcode=${code}`)
-        const info = response.status === 200 ? await response.json() : {}
-        const result = Object.keys(info).length > 0
+        var info = null
+        var result = false
+        // fetch(`https://isspc-back.saengwon-kim.workers.dev/?barcode=${code}`)
+        info = JSON.parse(await handleRequest(code))
+        result = Object.keys(info).length > 0
         return { result, info }
     }
 
@@ -74,6 +72,8 @@ class Index extends React.Component {
 
     async fetchResult(code) {
         const { result, info } = await this._isSPC(code)
+        console.log(info)
+        console.log(result)
         this.setState({
             detected: code,
             isSPC: result,
@@ -92,6 +92,7 @@ class Index extends React.Component {
 
     async setCaptureCanvas() {
         this.reader.pads = 0.0;
+        const scale = this.scale;
         this.reader.widthRatio = 1.0;
         this.reader.heightRatio = 1.0;
         this.reader.createCaptureCanvas = function(mediaElement) {
@@ -106,10 +107,23 @@ class Index extends React.Component {
             this.offsetHeight = offsetHeight;
             this.widthRatio = videoWidth / offsetWidth;
             this.heightRatio = videoHeight / offsetHeight;
-            const canvasStyle = "top: 0px; left: 0px; width:" + videoWidth + "px; height:"+ videoHeight + "px";
-            canvasElement.style = canvasStyle;
-            canvasElement.width = videoWidth;
-            canvasElement.height = videoHeight;
+            // const canvasStyle = "top: 0px; left: 0px; width:" + videoWidth + "px; height:"+ videoHeight + "px";
+            // canvasElement.style = canvasStyle;
+            // set position of frame
+            const frame = document.querySelector('#reader-frame');
+            let rect = frame.getBoundingClientRect();
+            const pads = Math.min(rect.width, rect.height) * (1 - scale) * 0.5;
+            this.pads = pads;
+            const boxShadow = "inset 0 0 0 " + pads + 'px' + " rgba(0, 0, 0, 0.5)";
+            frame.style.boxShadow = boxShadow;
+            const canvasTop = pads + 'px';
+            const canvasLeft = pads + 'px';
+            const canvasWidth = rect.width - 2 * pads
+            const canvasHeight = rect.height - 2 * pads
+            canvasElement.style = "top:" + canvasTop + "; left:" + canvasLeft;
+            canvasElement.width = canvasWidth * this.widthRatio;
+            canvasElement.height = canvasHeight * this.heightRatio;
+            
             return canvasElement;
         };
         this.reader.drawFrameOnCanvas = function(srcElement) {
@@ -166,7 +180,6 @@ class Index extends React.Component {
     }
 
     async startDetect() {
-        let selectedDeviceId;
         var constraintFacingMode = (location.hostname == 'localhost') ? "user" : "environment";
         var constraints = { audio: false, video: 
             { facingMode: constraintFacingMode, width: { min: 640, ideal: 2048, max: 4048 }, frameRate: {ideal: 10, max: 15}, focusMode: 'continuous' },
@@ -189,17 +202,18 @@ class Index extends React.Component {
             detected: '',
             isSPC: null,
             itemInfo: null,
+            streamNotSupported: true
         }, async () => {
-            await this.startDetect()
-            await this.setCaptureCanvas()
+            this.reader.reset()
+            this.scale = 0.5
         })
     }
 
     async componentDidMount() {
 
         try {
-            await this.startDetect()
-            await this.setCaptureCanvas()
+            this.reader.reset()
+            this.scale = 0.5
         } catch (error) {
             console.log(error)
             this.setState({
@@ -208,51 +222,44 @@ class Index extends React.Component {
         }
     }
 
+    async StopScanner() {
+        this.setState({
+            streamNotSupported: true
+        }, async() => {
+            this.reader.reset()
+            this.scale = 0.5
+        })
+    }
+
+    async StartScanner() {
+        this.setState({
+            streamNotSupported: false
+        }, async () => {
+            this.reader.reset()
+            this.scale = 0.5
+            await this.startDetect()
+            await this.setCaptureCanvas()
+        })
+    }
+
     render() {
         const { detected, streamNotSupported, isSPC } = this.state
 
         return (
             <div className="app">
-                <Helmet>
-                    <title>바스티유제빵소</title>
-                    <meta charSet="utf-8" />
-                    <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-                    <meta name="viewport" content="width=device-width, initial-scale=1" />
-                    <meta name="description" content="(베타)SPC 브랜드 로고가 보이지 않는 제품이 SPC의 손길이 닿은 제품인지 알아볼 수 있도록 도와줍니다. https://github.com/saengwon-kim/isspc/issues 에서 프로젝트에 기여할 수 있습니다." />
-                    <meta property="og:url" content="https://isspc.pages.dev" />
-                    <meta property="og:type" content="website" />
-                    <meta property="og:title" content="바스티유제빵소" />
-                    <meta property="og:description" content="바코드만 찍으면 SPC의 손길이 닿은 제품인지 알 수 있는 페이지입니다! " />
-                    <meta property="og:image" content="https://isspc.page.dev/isspc-logo.png" />
-                    <meta property="og:locale" content="ko_KR" />
-                    <link rel="manifest" id="dynamic-manifest" />
-                    <link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72-white.png" />
-                    <link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96-white.png" />
-                    <link rel="apple-touch-icon" sizes="128x128" href="/icons/icon-128x128-white.png" />
-                    <link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144-white.png" />
-                    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152-white.png" />
-                    <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192-white.png" />
-                    <link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384-white.png" />
-                    <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512-white.png" />
-                </Helmet>
-                <header className="header">
-                    <span className="logo">
-                        {/* <img src="isspc-logo.svg" alt="바스티유제빵소"/> */}
-                        {/* <div className="beta"><span>BETA</span></div> */}
-                    </span>
-                </header>
-                <main className="main">
                     <div ref={this.confettiBox} className="confetti" />
                     {!detected ?
                         <section className="search">
                             <h1>SPC 제품인지 확인해보세요</h1>
                             {streamNotSupported ?
+                                <div className="no-reader">
                                 <form onSubmit={this.handleSubmit}>
                                     <label htmlFor="barcode">바코드
                                         <input id="barcode" type="text" pattern="[0-9]*" maxLength="13" value={this.state.entered} onChange={this.handleChange.bind(this)} placeholder="8801068123456" />
                                     </label>
                                     <button type="submit" className="submit-btn" disabled={this.state.entered.length < 13}>찾기</button>
-                                </form> :
+                                </form>
+                                또는 <a onClick={this.StartScanner.bind(this)}>스캔 시작</a></div> :
                                 <div className="reader">
                                     <p>아래 화면에 바코드가 나오도록 비춰주세요</p>
                                     <div className="reader-inner">
@@ -262,8 +269,13 @@ class Index extends React.Component {
                                     <div id="reader-frame"></div>
                                     </div>
                                     <canvas id="reader-canvas" />
-                                    <button className="zoom-btn" onClick={this.zoomin.bind(this)}>+</button>
-                                    <button className="zoom-btn" onClick={this.zoomout.bind(this)}>-</button>
+                                    <div className="controlBox">
+                                        <ul>
+                                            <li><a onClick={this.zoomin.bind(this)}>영역축소</a></li>
+                                            <li><a onClick={this.zoomout.bind(this)}>영역확대</a></li>
+                                        </ul>
+                                    </div>
+                                    또는 <a onClick={this.StopScanner.bind(this)}>바코드 직접 입력하기</a>
                                 </div>
                             }
                         </section> :
@@ -300,19 +312,6 @@ class Index extends React.Component {
                             </div>
                         </section>
                     }
-                </main>
-                <footer className="footer">
-                    <span>
-                        <a href="https://github.com/saengwon-kim/isspc" target="_blank">
-                            <img src="github-logo.png" alt="github" className="logo" />
-                        </a>
-                    </span>
-                    <span>
-                        <a href="https://isnamyang.nullfull.kr" target="_blank">
-                            <img src="isnamyang-logo.svg" alt="남양유없" className="logo" />
-                        </a>
-                    </span>
-                </footer>
             </div>
         )
     }
@@ -323,5 +322,4 @@ class Index extends React.Component {
     }
 }
 
-
-export default Index
+export default IsSPC
