@@ -38,7 +38,8 @@ const REPORT_TYPE = {
 class IsSPC extends React.Component {
 
     reader = new BrowserMultiFormatReader(hints, 300)
-    scale = 0.5
+    initscale = 0.3
+    scale = 0.3
 
     state = {
         entered: '',
@@ -205,7 +206,7 @@ class IsSPC extends React.Component {
             streamNotSupported: true
         }, async () => {
             this.reader.reset()
-            this.scale = 0.5
+            this.scale = this.initscale
         })
     }
 
@@ -213,7 +214,7 @@ class IsSPC extends React.Component {
 
         try {
             this.reader.reset()
-            this.scale = 0.5
+            this.scale = this.initscale
         } catch (error) {
             console.log(error)
             this.setState({
@@ -227,7 +228,7 @@ class IsSPC extends React.Component {
             streamNotSupported: true
         }, async() => {
             this.reader.reset()
-            this.scale = 0.5
+            this.scale = this.initscale
         })
     }
 
@@ -236,7 +237,7 @@ class IsSPC extends React.Component {
             streamNotSupported: false
         }, async () => {
             this.reader.reset()
-            this.scale = 0.5
+            this.scale = this.initscale
             await this.startDetect()
             await this.setCaptureCanvas()
         })
@@ -246,7 +247,7 @@ class IsSPC extends React.Component {
         const { detected, streamNotSupported, isSPC } = this.state
 
         return (
-            <div className="app">
+            <div className="Scanner">
                     <div ref={this.confettiBox} className="confetti" />
                     {!detected ?
                         <section className="search">

@@ -6,7 +6,7 @@ module.exports = {
     siteUrl: `https://isspc.pages.dev`,
     siteLanguage: `ko`,
     author: `Saengwon Kim`,
-    siteDescription: '바코드만 찍으면 SPC의 손길이 닿은 제품인지 알 수 있는 페이지입니다!',
+    siteDescription: 'SPC의 손길이 닿은 제품인지 알아볼 수 있도록 도와주는 페이지입니다!',
     url: 'https://isspc.pages.dev',
     siteImage: '/icons.png'
   },
@@ -25,6 +25,27 @@ module.exports = {
         trackingId: 'UA-xxxxxxxxx-x'
       }
     },
-    'gatsby-plugin-offline'
+    'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Bastille Baker`,
+        short_name: `isSPC`,
+        description: `SPC의 손길이 닿은 제품인지 알아볼 수 있도록 도와주는 페이지입니다!`,
+        start_url: `/`,
+        background_color: `#141821`,
+        // This will impact how browsers show your PWA/website
+        // https://css-tricks.com/meta-theme-color-and-trickery/
+        // theme_color: `#f6ad55`,
+        display: `standalone`,
+        icons: [
+          {
+            src: `/icons.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+          },
+        ],
+      },
+    }
   ]
 }
