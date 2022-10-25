@@ -5,7 +5,7 @@ import { DecodeHintType, BrowserMultiFormatReader } from '@zxing/library'
 import activeConfetti from './confetti.js'
 import handleRequest from './static_db.js'
 import {Html5Qrcode} from "html5-qrcode"
-import heic2any from "heic2any"
+// import heic2any from "heic2any"
 
 const confettiColors = [
     '#E68F17',
@@ -192,10 +192,11 @@ class IsSPC extends React.Component {
         var imageFile = fileinput.files[0];
         const filetype = imageFile.name.split('.').pop();
         if (filetype.toLowerCase() === 'heic') {
-            let file = fileinput.files[0];
-            let blob = file.slice(0, file.size, 'image/heic'); 
-            const conversionResult = await heic2any({ blob, toType: "image/png" });
-            imageFile = new File([conversionResult], 'converted.png', {type: 'image/png'});
+            // let file = fileinput.files[0];
+            // let blob = file.slice(0, file.size, 'image/heic'); 
+            // const conversionResult = await heic2any({ blob, toType: "image/png" });
+            // imageFile = new File([conversionResult], 'converted.png', {type: 'image/png'});
+            alert("HEIC 형식은 아직 지원하지 않습니다.")
         }
         html5QrCode.scanFile(imageFile, false)
         .then(decodedText => {
