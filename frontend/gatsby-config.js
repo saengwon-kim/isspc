@@ -6,7 +6,7 @@ module.exports = {
     siteUrl: `https://isspc.pages.dev`,
     siteLanguage: `ko`,
     author: `Saengwon Kim`,
-    siteDescription: 'SPC의 손길이 닿은 제품인지 알아볼 수 있도록 도와주는 페이지입니다!',
+    siteDescription: 'SPC의 손길이 닿은 제품인지 알아볼 수 있도록 도와줍니다.',
     url: 'https://isspc.pages.dev',
     siteImage: '/logo.png'
   },
@@ -31,7 +31,7 @@ module.exports = {
       options: {
         name: `Bastille Baker`,
         short_name: `isSPC`,
-        description: `SPC의 손길이 닿은 제품인지 알아볼 수 있도록 도와주는 페이지입니다!`,
+        description: `SPC의 손길이 닿은 제품인지 알아볼 수 있도록 도와줍니다.`,
         start_url: `/`,
         background_color: `#141821`,
         // This will impact how browsers show your PWA/website
