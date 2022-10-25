@@ -4,7 +4,7 @@ import Divider from "@lekoarts/gatsby-theme-cara/src/elements/divider"
 import Inner from "@lekoarts/gatsby-theme-cara/src/elements/inner"
 import Content from "@lekoarts/gatsby-theme-cara/src/elements/content"
 import { UpDown, UpDownWide, waveAnimation } from "../styles/animations"
-import Footer from "@lekoarts/gatsby-theme-cara/src/components/footer"
+import Footer from "./footer"
 import ContactMDX from "../sections/contact.mdx"
 
 const Contact = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
@@ -20,6 +20,8 @@ const Contact = ({ offset, factor = 1 }: { offset: number; factor?: number }) =>
       <Inner>
         <ContactMDX />
       </Inner>
+    </Content>
+    <Content speed={0.0} offset={offset}>
       <Footer />
     </Content>
   </div>

@@ -1,5 +1,5 @@
 const defaultOptions = {
-  name: '바스티유제빵소',
+  name: '깜:빵집',
   short_name: 'isspc',
   start_url: '/?utm_source=a2hs',
   background_color: '#ffffff',

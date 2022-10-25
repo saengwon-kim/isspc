@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    siteTitle: '바스티유제빵소',
+    siteTitle: '깜:빵집',
     siteHeadline: 'SPC, 먹어서 응원하자!',
-    siteTitleAlt: `Bastille Bakery`,
+    siteTitleAlt: `깜:빵집`,
     siteUrl: `https://isspc.pages.dev`,
     siteLanguage: `ko`,
     author: `Saengwon Kim`,
     siteDescription: 'SPC의 손길이 닿은 제품인지 알아볼 수 있도록 도와줍니다.',
     url: 'https://isspc.pages.dev',
-    siteImage: '/logo.png'
+    siteImage: '/kkampain.png'
   },
   plugins: [
     {
@@ -40,7 +40,42 @@ module.exports = {
         display: `standalone`,
         icons: [
           {
-            src: `/logo.png`,
+            src: `/icons/icon-72x72.png`,
+            sizes: `72x72`,
+            type: `image/png`,
+          },
+          {
+            src: `/icons/icon-96x96.png`,
+            sizes: `96x96`,
+            type: `image/png`,
+          },
+          {
+            src: `/icons/icon-128x128.png`,
+            sizes: `128x128`,
+            type: `image/png`,
+          },
+          {
+            src: `/icons/icon-144x144.png`,
+            sizes: `144x144`,
+            type: `image/png`,
+          },
+          {
+            src: `/icons/icon-152x152.png`,
+            sizes: `152x152`,
+            type: `image/png`,
+          },
+          {
+            src: `/icons/icon-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `/icons/icon-384x384.png`,
+            sizes: `384x384`,
+            type: `image/png`,
+          },
+          {
+            src: `/icons/icon-512x512.png`,
             sizes: `512x512`,
             type: `image/png`,
           },

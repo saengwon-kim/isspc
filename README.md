@@ -1,4 +1,4 @@
-# 바스티유제빵소
+# 깜:빵집
 
 이 프로젝트는 [남양유없](https://github.com/NullFull/isnamyang) 프로젝트에서 영향을 받아 진행되었습니다.
 
@@ -25,3 +25,9 @@
 
 * [남양유없](https://github.com/NullFull/isnamyang) 프로젝트
 * [LekoArts/gatsby-theme-cara](https://www.gatsbyjs.com/plugins/@lekoarts/gatsby-theme-cara/) 프로젝트
+
+## 참고 사항
+
+* 프로젝트의 로고는 [준하트](https://www.instagram.com/0zun_heart0/)님께서 디자인해주셨으며, 저작권은 디자이너님께 있습니다.
+* 소스코드는 MIT 라이센스로 배포됩니다.
+* 기업 로고의 저작권은 해당 기업에 있습니다.
