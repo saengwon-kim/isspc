@@ -2,11 +2,11 @@ module.exports = {
   siteMetadata: {
     siteTitle: '깜:빵집',
     siteHeadline: 'SPC, 먹어서 응원하자!',
-    siteTitleAlt: `깜:빵집 - SPC의 손길이 닿은 제품과 가게를 알아볼 수 있도록 도와줍니다.`,
+    siteTitleAlt: `깜:빵집`,
     siteUrl: `https://isspc.pages.dev`,
     siteLanguage: `ko`,
     author: `Saengwon Kim`,
-    siteDescription: '깜:빵집 - SPC의 손길이 닿은 제품과 가게를 알아볼 수 있도록 도와줍니다.',
+    siteDescription: 'SPC의 손길이 닿은 제품과 가게를 알아볼 수 있도록 도와줍니다.',
     url: 'https://isspc.pages.dev',
     siteImage: '/kkampain.png'
   },
@@ -31,7 +31,7 @@ module.exports = {
       options: {
         name: `깜:빵집`,
         short_name: `isSPC`,
-        description: `깜:빵집 - SPC의 손길이 닿은 제품과 가게를 알아볼 수 있도록 도와줍니다.`,
+        description: `SPC의 손길이 닿은 제품과 가게를 알아볼 수 있도록 도와줍니다.`,
         start_url: `/`,
         background_color: `#141821`,
         // This will impact how browsers show your PWA/website
