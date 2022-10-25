@@ -28,7 +28,7 @@ const Footer = () => {
           a: { color: `text` },
         }}
       >
-      Copyright &copy; {new Date().getFullYear()}<div sx={{ mx: 1 }}>by</div>{` `}<Link href="https://github.com/saengwon-kim">Saengwon Kim</Link>. All rights reserved.
+      Copyright &copy; {new Date().getFullYear()}<div sx={{ mx: 1 }}>by</div>{` `}<Link href="https://github.com/saengwon-kim">Saengwon Kim</Link>.
       </Flex>
       <Flex
         sx={{
