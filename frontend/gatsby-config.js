@@ -20,9 +20,10 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-stylus',
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-plugin-google-gtag',
       options: {
-        trackingId: 'G-4KWSWD43ZZ'
+        trackingIds: ['G-4KWSWD43ZZ'],
+        pluginConfig: { head: true },
       }
     },
     'gatsby-plugin-offline',
