@@ -52,7 +52,6 @@ const BrandCard = ({ link, title, children, bg }: BrandCardProps) => (
     <p className="BrandTitle"
       sx={{
         textAlign: `center`,
-        pt: 1,
         fontSize: `normal`,
         width: `100%`,
         fontWeight: `medium`,
