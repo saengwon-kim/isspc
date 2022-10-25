@@ -168,26 +168,20 @@ class Index extends React.Component {
 
     async startDetect() {
         let selectedDeviceId;
+        var constraintFacingMode = (location.hostname == 'localhost') ? "user" : "environment";
+        var constraints = { audio: false, video: 
+            { facingMode: constraintFacingMode, width: { min: 640, ideal: 2048, max: 4048 }, frameRate: {ideal: 10, max: 15}, focusMode: 'continuous' },
+        };  // Filtering out audio doesnt seem to work.
 
-        this.reader.listVideoInputDevices()
-            .then((videoInputDevices) => {
-                selectedDeviceId = videoInputDevices.slice(-1)[0].deviceId
-                this.reader.decodeOnceFromVideoDevice(selectedDeviceId, 'interactive').then((result) => {
-                    this.onDetect(result)
-                }).catch((err) => {
-                    console.error(err)
-                    this.setState({
-                        streamNotSupported: true
-                    })
-                })
-                console.log(`Started continous decode from camera with id ${selectedDeviceId}`)
+        this.reader.decodeOnceFromConstraints(constraints, 'interactive')
+        .then((result) => {
+            this.onDetect(result)
+        }).catch((err) => {
+            console.error(err)
+            this.setState({
+                streamNotSupported: true
             })
-            .catch((err) => {
-                console.error(err)
-                this.setState({
-                    streamNotSupported: true
-                })
-            })
+        })
     }
 
     reset = () => {
