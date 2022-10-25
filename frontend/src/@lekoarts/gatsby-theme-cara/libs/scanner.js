@@ -212,7 +212,7 @@ class IsSPC extends React.Component {
     async startDetect() {
         var constraintFacingMode = (location.hostname == 'localhost') ? "user" : "environment";
         var constraints = { audio: false, video: 
-            { facingMode: constraintFacingMode, width: { min: 640, ideal: 2048, max: 4048 }, frameRate: {ideal: 10, max: 15}, focusMode: 'continuous' },
+            { facingMode: constraintFacingMode, width: { min: 640, ideal: 1280, max: 2560 }, frameRate: {ideal: 10, max: 15}, focusMode: 'continuous' },
         };  // Filtering out audio doesnt seem to work.
 
         this.reader.decodeOnceFromConstraints(constraints, 'interactive')
