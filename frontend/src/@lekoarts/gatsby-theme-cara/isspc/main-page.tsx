@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import { jsx, useColorMode } from "theme-ui"
 import Divider from "@lekoarts/gatsby-theme-cara/src/elements/divider"
 import Inner from "@lekoarts/gatsby-theme-cara/src/elements/inner"
 import Content from "@lekoarts/gatsby-theme-cara/src/elements/content"
@@ -8,8 +8,10 @@ import { UpDown, UpDownWide } from "@lekoarts/gatsby-theme-cara/src/styles/anima
 import Mainpage from "../sections/main-page.mdx"
 import IsSPC from "../libs/scanner"
 
-const MainPage = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
-  <div>
+const MainPage = ({ offset, factor = 1 }: { offset: number; factor?: number }) => {
+  
+  return (
+    <div>
     <Content sx={{ variant: `texts.bigger` }} speed={0.4} offset={offset} factor={factor}>
       <Inner>
         <Mainpage />
@@ -19,6 +21,6 @@ const MainPage = ({ offset, factor = 1 }: { offset: number; factor?: number }) =
       </Inner>
     </Content>
   </div>
-)
+)}
 
 export default MainPage

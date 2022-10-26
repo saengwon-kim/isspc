@@ -3,6 +3,7 @@ import { get } from "theme-ui"
 import { MDXProvider } from "@mdx-js/react"
 import { Global } from "@emotion/react"
 import MdxComponents from "./mdx-components"
+import ColorButton from "./color-button"
 
 type LayoutProps = { children: React.ReactNode; className?: string }
 
@@ -40,7 +41,10 @@ const Layout = ({ children, className = `` }: LayoutProps) => (
       })}
     />
     <MDXProvider components={MdxComponents}>
-      <main className={className}>{children}</main>
+      <main className={className}>
+        {children}
+        <ColorButton />
+      </main>
     </MDXProvider>
   </React.Fragment>
 )
