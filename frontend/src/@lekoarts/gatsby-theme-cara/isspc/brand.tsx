@@ -25,7 +25,6 @@ const BrandList = ({ offset, factor = 2 }: { offset: number; factor?: number }) 
               "div#searchBrandBox": { gridColumn: `-1/1`},
             }}
           >
-            ## 언제 어디서나 SPC를 만나보세요!
             <div id="searchBrandBox" sx={{ display: "none" }}> 
               {/* To Be Implement */}
               <label htmlFor="searchBrand" >브랜드 검색 <input id="searchBrand" type="text" placeholder="ALL" sx={{ fontSize: `1rem` }} />
