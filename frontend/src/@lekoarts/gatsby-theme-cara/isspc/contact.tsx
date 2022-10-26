@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import { jsx, Link } from "theme-ui"
 import Divider from "@lekoarts/gatsby-theme-cara/src/elements/divider"
 import Inner from "@lekoarts/gatsby-theme-cara/src/elements/inner"
-import Content from "@lekoarts/gatsby-theme-cara/src/elements/content"
+import Content from "../elements/content"
 import { UpDown, UpDownWide, waveAnimation } from "../styles/animations"
 import Footer from "./footer"
 import ContactMDX from "../sections/contact.mdx"
@@ -16,7 +16,7 @@ const Contact = ({ offset, factor = 1 }: { offset: number; factor?: number }) =>
       offset={offset}
       factor={factor}
     />
-    <Content speed={0.4} offset={offset} factor={factor}>
+    <Content speed={0.4} offset={offset} factor={factor} sx={{ zIndex: 100 }} >
       <Inner>
         <ContactMDX />
       </Inner>

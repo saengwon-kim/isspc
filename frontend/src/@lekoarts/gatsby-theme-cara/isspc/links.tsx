@@ -2,7 +2,7 @@
 import { jsx } from "theme-ui"
 import Divider from "@lekoarts/gatsby-theme-cara/src/elements/divider"
 import Inner from "@lekoarts/gatsby-theme-cara/src/elements/inner"
-import Content from "@lekoarts/gatsby-theme-cara/src/elements/content"
+import Content from "../elements/content"
 import LinksMDX from "../sections/links.mdx"
 
 const Links = ({ offset, factor = 2 }: { offset: number; factor?: number }) => (

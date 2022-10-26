@@ -2,7 +2,7 @@
 import { jsx } from "theme-ui"
 import Divider from "@lekoarts/gatsby-theme-cara/src/elements/divider"
 import Inner from "@lekoarts/gatsby-theme-cara/src/elements/inner"
-import Content from "@lekoarts/gatsby-theme-cara/src/elements/content"
+import Content from "../elements/content"
 import BrandListMDX from "../sections/brandlist.mdx"
 
 const BrandList = ({ offset, factor = 2 }: { offset: number; factor?: number }) => (
