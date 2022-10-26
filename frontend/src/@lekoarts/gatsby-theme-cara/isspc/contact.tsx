@@ -16,7 +16,7 @@ const Contact = ({ offset, factor = 1 }: { offset: number; factor?: number }) =>
       offset={offset}
       factor={factor}
     />
-    <Content speed={0.1} offset={offset - 0.2} factor={factor} sx={{ zIndex: 100 }} >
+    <Content speed={-0.2} offset={offset - 0.4} factor={factor} sx={{ zIndex: 100 }} >
       <Inner>
         <ContactMDX />
       </Inner>
