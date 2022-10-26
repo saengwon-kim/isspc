@@ -281,7 +281,7 @@ class IsSPC extends React.Component {
                     {!detected ?
                         <section className="search">
                             <h1>SPC 제품인지 확인해보세요</h1>
-                            <small className="remark-notice" style={{ color: "#666", fontSize: `1rem` }}>아직은 베타버전이며 880으로 시작하는 유통바코드만 분류할 수 있습니다.</small>
+                            <span className="remark-notice">아직은 베타버전이며 880으로 시작하는 유통바코드만 분류할 수 있습니다.</span>
                             {streamNotSupported ?
                                 <div className="no-reader">
                                 <form onSubmit={this.handleSubmit}>
