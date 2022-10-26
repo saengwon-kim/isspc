@@ -17,10 +17,11 @@ const BrandList = ({ offset, factor = 2 }: { offset: number; factor?: number }) 
       <Content speed={0.4} offset={offset + 0.2} factor={factor}>
         <Inner>
           <div
+            className="brandListDiv"
             sx={{
               display: `grid`,
-              gridTemplateColumns: ['repeat(4, 1fr)', 'repeat(6, 1fr)'],
-              gap: [2, 4],
+              gridTemplateColumns: `repeat(6, 1fr)`,
+              gap: 4,
               h2: { gridColumn: `-1/1` },
               "div#searchBrandBox": { gridColumn: `-1/1`},
             }}
