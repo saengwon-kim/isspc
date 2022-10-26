@@ -11,10 +11,10 @@ const BrandList = ({ offset, factor = 2 }: { offset: number; factor?: number }) 
         bg="linear-gradient(to right, SlateBlue 0%, DeepSkyBlue 100%)"
         sx={{ clipPath: `polygon(0 15%, 100% 25%, 100% 85%, 0 75%)` }}
         speed={-0.2}
-        offset={offset}
+        offset={offset - 0.2}
         factor={factor}
       />
-      <Content speed={0.4} offset={offset + 0.2} factor={factor}>
+      <Content speed={0.3} offset={offset + 0.5} factor={factor}>
         <Inner>
           <div
             className="brandListDiv"

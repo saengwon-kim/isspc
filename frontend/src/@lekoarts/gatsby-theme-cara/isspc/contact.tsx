@@ -16,12 +16,12 @@ const Contact = ({ offset, factor = 1 }: { offset: number; factor?: number }) =>
       offset={offset}
       factor={factor}
     />
-    <Content speed={0.4} offset={offset} factor={factor} sx={{ zIndex: 100 }} >
+    <Content speed={0.1} offset={offset - 0.2} factor={factor} sx={{ zIndex: 100 }} >
       <Inner>
         <ContactMDX />
       </Inner>
     </Content>
-    <Content speed={0.0} offset={offset}>
+    <Content speed={0} offset={offset}>
       <Footer />
     </Content>
   </div>

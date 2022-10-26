@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import './brandcard.styl'
 import { jsx } from "theme-ui"
 
 type BrandCardProps = {

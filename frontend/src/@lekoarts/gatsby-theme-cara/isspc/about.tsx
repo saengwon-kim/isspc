@@ -14,9 +14,7 @@ const About = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
       offset={offset}
       factor={factor}
     />
-    <Divider speed={0.1} offset={offset} factor={factor}>
-    </Divider>
-    <Content speed={0.4} offset={offset} factor={factor}>
+    <Content speed={0.4} offset={offset + 0.1} factor={factor}>
       <Inner>
         <AboutMDX />
       </Inner>
