@@ -76,6 +76,9 @@ class IsSPC extends React.Component {
 
     async fetchResult(code) {
         const { result, info } = await this._isSPC(code)
+        if (code.length < 13 || code.slice(0, 3) != "880") {
+            alert("바코드가 형식에 맞지 않습니다. 결과가 부정확할 수 있습니다.")
+        }
         this.setState({
             detected: code,
             isSPC: result,
