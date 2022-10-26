@@ -19,8 +19,8 @@ const BrandList = ({ offset, factor = 2 }: { offset: number; factor?: number }) 
         <div
           sx={{
             display: `grid`,
-            gridTemplateColumns: ['repeat(4, 1fr)', 'repeat(5, 1fr)', 'repeat(6, 1fr)'],
-            gap: 4,
+            gridTemplateColumns: ['repeat(4, 1fr)', 'repeat(6, 1fr)'],
+            gap: [2, 4],
             h2: { gridColumn: `-1/1` },
           }}
         >
