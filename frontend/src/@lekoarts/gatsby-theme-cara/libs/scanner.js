@@ -1,11 +1,9 @@
 import './scanner.styl'
 import React, { useState, useRef } from 'react'
-import { Helmet } from 'react-helmet'
 import { DecodeHintType, BrowserMultiFormatReader } from '@zxing/library'
 import activeConfetti from './confetti.js'
 import handleRequest from './static_db.js'
-import {Html5Qrcode, Html5QrcodeSupportedFormats} from "html5-qrcode"
-// import heic2any from "heic2any"
+import Quagga from '@ericblade/quagga2';
 
 const confettiColors = [
     '#E68F17',
@@ -185,15 +183,6 @@ class IsSPC extends React.Component {
     }
 
     async DetectFromFile(){
-        const html5QrCode = new Html5Qrcode("uploaded",
-            {
-                verbose: true,
-                formatsToSupport: [
-                    Html5QrcodeSupportedFormats.EAN_13,
-                    Html5QrcodeSupportedFormats.EAN_8
-                ]
-            }
-        );
         // File based scanning
         const fileinput = document.getElementById('reader-input');
         if (fileinput.files.length == 0) {
@@ -209,15 +198,28 @@ class IsSPC extends React.Component {
             // imageFile = new File([conversionResult], 'converted.png', {type: 'image/png'});
             alert("HEIC 형식은 아직 지원하지 않습니다.")
         }
-        html5QrCode.scanFile(imageFile, false)
-        .then(decodedText => {
-            this.fetchResult(decodedText);
-        })
-        .catch(err => {
-            // failure, handle it.
-            console.log(`Error scanning file. Reason: ${err}`)
-            alert("이미지에서 바코드를 읽을 수 없습니다")
-        });
+        var reader = new FileReader();
+        reader.onload = () => {
+            const imageData = reader.result;
+            Quagga.decodeSingle({
+                src: imageData,
+                numOfWorkers: 0,  // Needs to be 0 when used within node
+                inputStream: {
+                    size: 800  // restrict input-size to be 800px in width (long-side)
+                },
+                decoder: {
+                    readers: ["ean_reader", "code_128_reader"] // List of active readers
+                },
+            }, (result) => {
+                try {
+                    this.fetchResult(result.codeResult.code);
+                } catch {
+                    console.log("not detected");
+                    alert("이미지에서 바코드를 읽을 수 없습니다");
+                }
+            });
+        }
+        reader.readAsDataURL(imageFile);
     }
 
     async startDetect() {
@@ -304,6 +306,9 @@ class IsSPC extends React.Component {
                                 </div> :
                                 <div className="reader">
                                     <p>아래 화면에 바코드가 나오도록 비춰주세요</p>
+                                    <div className="controlBox">
+                                        <button className="submit-btn" onClick={this.zoomin.bind(this)}>영역축소</button> <button className="submit-btn" onClick={this.zoomout.bind(this)}>영역확대</button> <button className="submit-btn" onClick={this.StopScanner.bind(this)}>스캔 멈추기</button>
+                                    </div><br></br>
                                     <div className="reader-inner">
                                     <div className="reader-video" id="reader-video">
                                         <video ref={this.interactive} id="interactive" className="viewport" />
@@ -311,13 +316,6 @@ class IsSPC extends React.Component {
                                     <div id="reader-frame"></div>
                                     </div>
                                     <canvas id="reader-canvas" />
-                                    <div className="controlBox">
-                                        <ul>
-                                            <li><button className="submit-btn" onClick={this.zoomin.bind(this)}>영역축소</button></li>
-                                            <li><button className="submit-btn" onClick={this.zoomout.bind(this)}>영역확대</button></li>
-                                        </ul>
-                                    </div>
-                                    <button className="submit-btn" onClick={this.StopScanner.bind(this)}>스캔 멈추기</button>
                                 </div>
                             }
                         </section> :
