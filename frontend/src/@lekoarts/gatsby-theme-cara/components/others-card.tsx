@@ -9,10 +9,7 @@ type OthersCardProps = {
 }
 
 const OthersCard = ({ link, title, children, bg }: OthersCardProps) => (
-  <a
-    href={link}
-    target="_blank"
-    rel="noreferrer noopener"
+  <div
     sx={{
       width: `100%`,
       boxShadow: `lg`,
@@ -24,10 +21,6 @@ const OthersCard = ({ link, title, children, bg }: OthersCardProps) => (
       color: `background`,
       background: bg || `none`,
       transition: `all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important`,
-      "&:hover": {
-        transform: `translateY(-5px)`,
-        boxShadow: `xl`,
-      },
     }}
   >
     <div
@@ -59,7 +52,7 @@ const OthersCard = ({ link, title, children, bg }: OthersCardProps) => (
     >
       {children}
     </div>
-  </a>
+  </div>
 )
 
 export default OthersCard

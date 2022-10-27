@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import { DecodeHintType, BrowserMultiFormatReader } from '@zxing/library'
 import activeConfetti from './confetti.js'
 import handleRequest from './static_db.js'
-import {Html5Qrcode} from "html5-qrcode"
+import {Html5Qrcode, Html5QrcodeSupportedFormats} from "html5-qrcode"
 // import heic2any from "heic2any"
 
 const confettiColors = [
@@ -185,7 +185,15 @@ class IsSPC extends React.Component {
     }
 
     async DetectFromFile(){
-        const html5QrCode = new Html5Qrcode("uploaded");
+        const html5QrCode = new Html5Qrcode("uploaded",
+            {
+                verbose: true,
+                formatsToSupport: [
+                    Html5QrcodeSupportedFormats.EAN_13,
+                    Html5QrcodeSupportedFormats.EAN_8
+                ]
+            }
+        );
         // File based scanning
         const fileinput = document.getElementById('reader-input');
         if (fileinput.files.length == 0) {
