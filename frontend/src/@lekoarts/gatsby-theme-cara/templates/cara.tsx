@@ -8,17 +8,19 @@ import Seo from "@lekoarts/gatsby-theme-cara/src/components/seo"
 import MainPage from "../isspc/main-page"
 import Links from "../isspc/links"
 import BrandList from "../isspc/brand"
+import Others from "../isspc/others"
 import "../styles/styles.styl"
 
 const Cara = () => {
   return (
     <Layout>
-      <Parallax pages={6}>
+      <Parallax pages={9.8}>
         <MainPage offset={0} factor={1} />
-        <BrandList offset={1} factor={2} />
-        <About offset={3} factor={1} />
-        <Links offset={4} factor={1} />
-        <Contact offset={5} factor={1} />
+        <BrandList offset={1.2} factor={3} />
+        <Others offset={4} factor={2} />
+        <About offset={6} factor={1} />
+        <Links offset={7} factor={1.5} />
+        <Contact offset={8.8} factor={1} />
       </Parallax>
     </Layout>
   )

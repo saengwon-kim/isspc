@@ -10,11 +10,11 @@ const BrandList = ({ offset, factor = 2 }: { offset: number; factor?: number }) 
       <Divider
         bg="linear-gradient(to right, SlateBlue 0%, DeepSkyBlue 100%)"
         sx={{ clipPath: `polygon(0 15%, 100% 25%, 100% 85%, 0 75%)` }}
-        speed={-factor / 10}
-        offset={offset - factor / 10}
+        speed={0.1}
+        offset={offset}
         factor={factor}
       />
-      <Content speed={factor / 10} offset={offset + factor / 10} factor={factor}>
+      <Content speed={0.2} offset={offset + 0.1} factor={factor}>
         <Inner>
           <div
             className="brandListDiv"

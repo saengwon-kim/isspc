@@ -3,9 +3,9 @@ import { jsx } from "theme-ui"
 import Divider from "@lekoarts/gatsby-theme-cara/src/elements/divider"
 import Inner from "@lekoarts/gatsby-theme-cara/src/elements/inner"
 import Content from "../elements/content"
-import LinksMDX from "../sections/links.mdx"
+import OthersMDX from "../sections/others.mdx"
 
-const Links = ({ offset, factor = 2 }: { offset: number; factor?: number }) => (
+const Others = ({ offset, factor = 2 }: { offset: number; factor?: number }) => (
 
   <div>
     <Divider
@@ -18,7 +18,7 @@ const Links = ({ offset, factor = 2 }: { offset: number; factor?: number }) => (
     <Content speed={ 0.2 } offset={offset + 0.2} factor={factor}>
       <Inner>
       <div
-          className="projectListDiv"
+          className="otherListDiv"
           sx={{
             display: `grid`,
             gridGap: [4, 4, 4, 5],
@@ -26,11 +26,11 @@ const Links = ({ offset, factor = 2 }: { offset: number; factor?: number }) => (
             h2: { gridColumn: `-1/1` },
           }}
         >
-        <LinksMDX />
+        <OthersMDX />
         </div>
       </Inner>
     </Content>
   </div>
 )
 
-export default Links
+export default Others

@@ -1,4 +1,5 @@
-import * as React from "react"
+/** @jsx jsx */
+import { jsx } from "theme-ui"
 import Divider from "@lekoarts/gatsby-theme-cara/src/elements/divider"
 import Inner from "@lekoarts/gatsby-theme-cara/src/elements/inner"
 import Content from "../elements/content"
@@ -7,14 +8,14 @@ import AboutMDX from "../sections/about.mdx"
 
 const About = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
   <div>
-    <Divider
-      bg="divider"
-      clipPath="polygon(0 16%, 100% 4%, 100% 82%, 0 94%)"
-      speed={factor * 0.2}
-      offset={offset + factor * 0.2}
-      factor={factor}
-    />
-    <Content speed={-factor * 0.2} offset={offset - factor * 0.1} factor={factor}>
+      <Divider
+        bg="linear-gradient(to right, SlateBlue 0%, DeepSkyBlue 100%)"
+        sx={{ clipPath: `polygon(0 15%, 100% 25%, 100% 85%, 0 75%)` }}
+        speed={0.3}
+        offset={offset}
+        factor={factor}
+      />
+    <Content speed={0.2} offset={offset} factor={factor} >
       <Inner>
         <AboutMDX />
       </Inner>
