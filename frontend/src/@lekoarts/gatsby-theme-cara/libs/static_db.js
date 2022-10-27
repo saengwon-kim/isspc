@@ -1,5 +1,5 @@
-import allow from "../static_db/allow.json"
-import block from "../static_db/block.json"
+import allow from "../../../../static/db/allow.json"
+import block from "../../../../static/db/block.json"
 
 async function gatherResponse(allow, block, barcode) {
     const allow_company = allow.company;
