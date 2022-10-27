@@ -32,7 +32,6 @@ async function handleRequest(request) {
     const { searchParams } = new URL(request.url);
     let barcode = searchParams.get("barcode");
     const results = await gatherResponse(allow, block, barcode);
-    console.log(results);
     return new Response(results, init_json);
     // return new Response(allow, init);
 }

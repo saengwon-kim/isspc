@@ -321,8 +321,8 @@ class IsSPC extends React.Component {
                                         <p className="truth">맞습니다!</p>
                                     </div>
                                     <dl>
-                                    <dt className="product-title">제조원:</dt>
-                                    <dd className="product-name">{this.state.itemInfo.content.manufacturer}</dd>
+                                    <dt className="manufact-title">제조원:</dt>
+                                    <dd className="manufact-name">{this.state.itemInfo.content.manufacturer}</dd>
                                     </dl>
                                     <dl>
                                         <dt className="barcode-title">바코드:</dt>
@@ -339,6 +339,15 @@ class IsSPC extends React.Component {
                                         <dd className="barcode-info">{detected}</dd>
                                     </dl>
                                 </>
+                            }
+                            {this.state.itemInfo.type === "product" ?
+                                <>
+                                <dl>
+                                    <dt className="prodname-title">제품명:</dt>
+                                    <dd className="prodname-info">{this.state.itemInfo.content.name}</dd>
+                                </dl>
+                                </> :
+                                <></>
                             }
                             <div className="actions">
                                 <button className="reset" type="button" onClick={this.reset}>다른 제품 찾기</button>

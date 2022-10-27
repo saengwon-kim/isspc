@@ -16,7 +16,7 @@ SPC의 손길이 닿은 제품과 가게를 알아볼 수 있도록 도와줍니
 
 확인되지 않는 SPC 제품, 혹은 잘못된 데이터를 발견하셨다면 다음의 순서로 데이터를 추가하실 수 있습니다.
 
-1. [데이터가 저장된 폴더](./blob/main/backend/data)에서 해당 항목을 확인합니다. 
+1. [데이터가 저장된 폴더](./blob/main/frontend/static/db)에서 해당 항목을 확인합니다. 
 2. [신고 스프레드시트](https://docs.google.com/spreadsheets/d/10_E7HjyxuOAGmMWtpWt9_w3aXa71RJzjlcKIq9MJqVo/edit?usp=sharing)에서도 확인합니다.
 3. [신고 페이지](https://docs.google.com/forms/d/e/1FAIpQLSdr1TjcPBSri35YsGrqcraFvvcDMHfxQecyDqA7xbK8feNZ-g/viewform?usp=sf_link)에서 자료와 함께 내용을 신고합니다.
 4. 2에 들어가 잘 접수되었는 지 확인합니다.

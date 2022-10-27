@@ -14,13 +14,16 @@
         },
         "880969023": {
             "manufacturer": "(주)파리크라상"
+        },
+        "880928863": {
+            "manufacturer": "비알코리아(주)"
         }
     },
     "product": {
-        "8801068000000": {
-            "manufacturer": "(주)에스피씨삼립",
-            "distributor": "",
-            "name": "TMP_ALLOWPROD"
+        "8809687080242": {
+            "manufacturer": "주식회사 쓰리제이코퍼레이션 (위탁생산)",
+            "distributor": "에스피씨삼립",
+            "name": "찬 바람이 불어오면 삼립호빵 대형 핫팩"
         }
     }
 }
