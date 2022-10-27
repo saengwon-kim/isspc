@@ -14,7 +14,7 @@ const BrandList = ({ offset, factor = 2 }: { offset: number; factor?: number }) 
         offset={offset - factor / 10}
         factor={factor}
       />
-      <Content speed={factor / 10} offset={offset + factor * 0.25} factor={factor}>
+      <Content speed={factor / 10} offset={offset + factor / 10} factor={factor}>
         <Inner>
           <div
             className="brandListDiv"

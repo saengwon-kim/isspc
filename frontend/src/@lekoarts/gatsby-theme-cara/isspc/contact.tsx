@@ -12,11 +12,11 @@ const Contact = ({ offset, factor = 1 }: { offset: number; factor?: number }) =>
     <Divider
       bg="divider"
       clipPath="polygon(0 16%, 100% 4%, 100% 82%, 0 94%)"
-      speed={0.2}
+      speed={factor / 5}
       offset={offset}
       factor={factor}
     />
-    <Content speed={-0.2} offset={offset - 0.4} factor={factor} sx={{ zIndex: 100 }} >
+    <Content speed={-factor / 5} offset={offset - factor * 0.4} factor={factor} sx={{ zIndex: 100 }} >
       <Inner>
         <ContactMDX />
       </Inner>
