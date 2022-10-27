@@ -1,13 +1,24 @@
 {
     "company": {
         "8801068": {
-            "name": "(주)에스피씨삼립"
+            "manufacturer": "(주)에스피씨삼립"
+        },
+        "880939312": {
+            "manufacturer": "(주)에스피씨삼립"
+        },
+        "8804007": {
+            "manufacturer": "(주)에스피씨삼립"
+        },
+        "880928366": {
+            "manufacturer": "비알코리아(주)"
+        },
+        "880969023": {
+            "manufacturer": "(주)파리크라상"
         }
     },
     "product": {
         "8801068000000": {
-            "brand": "",
-            "manufacturer": "",
+            "manufacturer": "(주)에스피씨삼립",
             "distributor": "",
             "name": "TMP_ALLOWPROD"
         }

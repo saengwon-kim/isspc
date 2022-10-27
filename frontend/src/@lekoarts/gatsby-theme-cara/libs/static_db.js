@@ -2,22 +2,34 @@ import allow from "../static_db/allow.json"
 import block from "../static_db/block.json"
 
 async function gatherResponse(allow, block, barcode) {
-    let barcode_company = barcode.slice(0, 7);
     const allow_company = allow.company;
     const allow_product = allow.product;
     const block_company = block.company;
     const block_product = block.product;
     var res = {};
-    if (barcode_company in allow_company) {
-        res["type"] = "company";
-        res["content"] = allow_company[barcode_company];
+    var barcode_company = barcode;
+    for (let i = 0; i < barcode.length; i++) {
+        barcode_company = barcode.slice(0, i);
+        if (barcode_company in allow_company) {
+            res["type"] = "company";
+            res["content"] = allow_company[barcode_company];
+            res["isSPC"] = true;
+        }
+        if (barcode_company in block_company) {
+            res["type"] = "company";
+            res["content"] = block_company[barcode_company];
+            res["isSPC"] = false;
+        }
     }
     if (barcode in allow_product) {
         res["type"] = "product";
         res["content"] = allow_product[barcode];
+        res["isSPC"] = true;
     }
-    if (barcode_company in block_company || barcode in block_product) {
-        res = {};
+    if (barcode in block_product) {
+        res["type"] = "product";
+        res["content"] = block_product[barcode];
+        res["isSPC"] = false;
     }
     return JSON.stringify(res);
 }

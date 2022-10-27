@@ -59,7 +59,7 @@ class IsSPC extends React.Component {
         var result = false
         // fetch(`https://isspc-back.saengwon-kim.workers.dev/?barcode=${code}`)
         info = JSON.parse(await handleRequest(code))
-        result = Object.keys(info).length > 0
+        result = (Object.keys(info).length > 0 ? info.isSPC : false)
         return { result, info }
     }
 
@@ -320,10 +320,10 @@ class IsSPC extends React.Component {
                                         <p>SPC 제품이</p>
                                         <p className="truth">맞습니다!</p>
                                     </div>
-                                    {/* <dl>
-                                    <dt className="product-title">제품명:</dt>
-                                    <dd className="product-name">{this.state.itemInfo.content.name}</dd>
-                                </dl> */}
+                                    <dl>
+                                    <dt className="product-title">제조원:</dt>
+                                    <dd className="product-name">{this.state.itemInfo.content.manufacturer}</dd>
+                                    </dl>
                                     <dl>
                                         <dt className="barcode-title">바코드:</dt>
                                         <dd className="barcode-info">{detected}</dd>
