@@ -208,9 +208,18 @@ class IsSPC extends React.Component {
                     size: 800  // restrict input-size to be 800px in width (long-side)
                 },
                 decoder: {
-                    readers: ["ean_reader", "code_128_reader"] // List of active readers
+                    readers: [
+                        "ean_reader", {
+                        format: "ean_reader",
+                        config: {
+                            supplements: [
+                                'ean_5_reader', 'ean_2_reader'
+                            ]
+                        }},
+                        "code_128_reader", "i2of5_reader"] // List of active readers
                 },
             }, (result) => {
+                console.log(result)
                 try {
                     this.fetchResult(result.codeResult.code);
                 } catch {
@@ -299,7 +308,7 @@ class IsSPC extends React.Component {
                                 <div className="no-reader">
                                 <form onSubmit={this.handleSubmit}>
                                     <label htmlFor="barcode">바코드
-                                        <input id="barcode" type="text" pattern="[0-9]*" maxLength="13" value={this.state.entered} onChange={this.handleChange.bind(this)} placeholder="8801068123456" />
+                                        <input id="barcode" type="text" pattern="[0-9]*" maxLength="18" value={this.state.entered} onChange={this.handleChange.bind(this)} placeholder="8801068123456" />
                                     </label>
                                     <button type="submit" className="submit-btn" disabled={this.state.entered.length < 13}>찾기</button> <a onClick={this.StartScanner.bind(this)} className="submit-btn">스캔</a> <label htmlFor="reader-input" className="submit-btn">업로드</label><input type="file" id="reader-input" className="image_inputType_file" accept="image/*;capture=camera" onChange={this.DetectFromFile.bind(this)}></input><div id="uploaded" width="300px"></div>
                                 </form>
