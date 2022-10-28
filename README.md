@@ -1,16 +1,22 @@
 # 깜:빵집
 
-SPC의 손길이 닿은 제품과 가게를 알아볼 수 있도록 도와줍니다.
+SPC의 손길이 닿은 제품과 가게를 알아볼 수 있도록 도와줍니다.  
+웹페이지의 주소는 [https://isspc.pages.dev](https://isspc.pages.dev) 입니다.  
+이 프로젝트는 [남양유없 프로젝트](https://isnamyang.nullfull.kr)에서 영감을 받아 진행되었습니다.  
+이 프로젝트의 아이디어와 구현의 많은 부분은 [남양유없 프로젝트의 깃허브 저장소](https://github.com/NullFull/isnamyang)를 참고하였음을 밝힙니다.
 
-이 프로젝트는 [남양유없](https://github.com/NullFull/isnamyang) 프로젝트에서 영감을 받아 진행되었습니다.
+## 구성
 
-이 프로젝트의 아이디어와 구현의 많은 부분은 [남양유없](https://github.com/NullFull/isnamyang) 프로젝트를 참고하였음을 밝힙니다.
+### 바코드 인식
 
-## TODO:
+* 직접 입력: 13자리부터 18자리까지 인식 가능, 숫자 입력 후 찾기 버튼 클릭
+* 스캔: 실시간으로 스캔
+* 업로드: 사진 파일을 올리거나 직접 촬영 가능, 기본 카메라의 줌 기능 등 활용 가능
 
-- [x] SPC 브랜드 정리 (파리바게뜨, 던킨도넛, 쉑쉑버거 등)
-- [ ] SPC가 생산하지 않았지만 관련된 제품들 (위탁생산 등) 정리
-- [ ] 신고 데이터의 (반)자동 반영
+### SPC 관련 브랜드 정리
+
+* SPC 브랜드
+* SPC 연관 브랜드: 패스트푸드점, 휴게소
 
 ## SPC 제품을 추가하고 싶어요! or 잘못된 데이터가 있어요!
 
@@ -21,10 +27,22 @@ SPC의 손길이 닿은 제품과 가게를 알아볼 수 있도록 도와줍니
 3. [신고 페이지](https://docs.google.com/forms/d/e/1FAIpQLSdr1TjcPBSri35YsGrqcraFvvcDMHfxQecyDqA7xbK8feNZ-g/viewform?usp=sf_link)에서 자료와 함께 내용을 신고합니다.
 4. 2에 들어가 잘 접수되었는 지 확인합니다.
 
-## 참고 자료
+## 관련 자료
 
-* [남양유없](https://github.com/NullFull/isnamyang) 프로젝트
-* [LekoArts/gatsby-theme-cara](https://www.gatsbyjs.com/plugins/@lekoarts/gatsby-theme-cara/) 프로젝트
+### 참고 자료
+
+* [남양유없 프로젝트](https://github.com/NullFull/isnamyang)
+
+### 프론트엔드
+
+* [Gatsby](https://www.gatsbyjs.com): 정적 사이트(static site) 생성
+* [LekoArts/gatsby-theme-cara](https://www.gatsbyjs.com/plugins/@lekoarts/gatsby-theme-cara/): 테마
+* [ericblade/quagga2](https://github.com/ericblade/quagga2): [업로드로 바코드 인식](./frontend/src/@lekoarts/gatsby-theme-cara/libs/scanner.js)
+* [zxing-js/library](https://github.com/zxing-js/library): [스캔으로 바코드 인식](./frontend/src/@lekoarts/gatsby-theme-cara/libs/scanner.js)
+
+### 백엔드
+
+* [Cloudflare Workers](https://developers.cloudflare.com/workers/)
 
 ## 참고 사항
 
