@@ -310,7 +310,7 @@ class IsSPC extends React.Component {
                                     <label htmlFor="barcode">바코드
                                         <input id="barcode" type="text" pattern="[0-9]*" maxLength="18" value={this.state.entered} onChange={this.handleChange.bind(this)} placeholder="8801068123456" />
                                     </label>
-                                    <button type="submit" className="submit-btn" disabled={this.state.entered.length < 13}>찾기</button> <a onClick={this.StartScanner.bind(this)} className="submit-btn">스캔</a> <label htmlFor="reader-input" className="submit-btn">업로드</label><input type="file" id="reader-input" className="image_inputType_file" accept="image/*;capture=camera" onChange={this.DetectFromFile.bind(this)}></input><div id="uploaded" width="300px"></div>
+                                    <button type="submit" className="submit-btn" disabled={this.state.entered.length < 8}>찾기</button> <a onClick={this.StartScanner.bind(this)} className="submit-btn">스캔</a> <label htmlFor="reader-input" className="submit-btn">업로드</label><input type="file" id="reader-input" className="image_inputType_file" accept="image/*;capture=camera" onChange={this.DetectFromFile.bind(this)}></input><div id="uploaded" width="300px"></div>
                                 </form>
                                 </div> :
                                 <div className="reader">

@@ -49,6 +49,56 @@
             "manufacturer": "(주)에스피씨삼립",
             "distributor": "청정원",
             "name": "청정원 소프트 미니 치즈케이크"
+        },
+        "00933016": {
+            "manufacturer": "파리바게트",
+            "distributor": "",
+            "name": "아침&딸기우유"
+        },
+        "00535280": {
+            "manufacturer": "파리바게트",
+            "distributor": "",
+            "name": "발사믹오일드레싱"
+        },
+        "00100133": {
+            "manufacturer": "파리바게트",
+            "distributor": "",
+            "name": "부드러운 정통우유 식빵"
+        },
+        "00110004": {
+            "manufacturer": "파리바게트",
+            "distributor": "",
+            "name": "부드러운 우유 모닝롤"
+        },
+        "00910198": {
+            "manufacturer": "파리바게트",
+            "distributor": "",
+            "name": "촉촉한 치즈케익"
+        },
+        "00100001": {
+            "manufacturer": "파리바게트",
+            "distributor": "",
+            "name": "바삭하게 그대로 토스트"
+        },
+        "00110001": {
+            "manufacturer": "파리바게트",
+            "distributor": "",
+            "name": "단팥빵"
+        },
+        "00110214": {
+            "manufacturer": "파리바게트",
+            "distributor": "",
+            "name": "까망베르치즈 듬뿍 치즈후레쉬번"
+        },
+        "00110003": {
+            "manufacturer": "파리바게트",
+            "distributor": "",
+            "name": "땅콩크림빵"
+        },
+        "00122205": {
+            "manufacturer": "파리바게트",
+            "distributor": "",
+            "name": "다섯가지 정성의 맛 화과자명가"
         }
     }
 }
