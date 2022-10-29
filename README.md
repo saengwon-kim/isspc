@@ -9,13 +9,13 @@ SPC의 손길이 닿은 제품과 가게를 알아볼 수 있도록 도와줍니
 </h4>
 <p align="center">
   <a href="https://github.com/saengwon-kim/isspc/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/saengwon-kim/isspc?style=flat-square" alt="GitHub">
+    <img src="https://img.shields.io/github/license/saengwon-kim/isspc?style=flat" alt="GitHub">
   </a>
   <a href="https://github.com/saengwon-kim/isspc/actions/workflows/deploy.yml">
-    <img src="https://img.shields.io/github/workflow/status/saengwon-kim/isspc/deploy/main?style=flat-square" alt="GitHub Workflow Status (branch)">
+    <img src="https://img.shields.io/github/workflow/status/saengwon-kim/isspc/deploy/main?style=flat" alt="GitHub Workflow Status (branch)">
   </a>
   <a href="https://isspc.pages.dev/">
-    <img src="https://img.shields.io/badge/Cloudflare-F38020?style=flat-square&logo=Cloudflare&logoColor=white" alt="Cloudflare">
+    <img src="https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fisspc.pages.dev" alt="status">
   </a>
 </p>
 
