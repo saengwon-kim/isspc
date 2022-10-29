@@ -1,8 +1,13 @@
-<h1 style="display:table;"><span style="vertical-align:middle; display:table-cell; padding: 2px;"><a href="https://isspc.pages.dev"><img src="https://github.com/saengwon-kim/isspc/raw/main/frontend/static/kkampain.png" style="height: 1em; vertical-align:middle; display:table-cell;" alt="깜빵집"/></a></span><span style="vertical-align:middle; display:table-cell; padding: 2px;">깜:빵집</span></h1>
-<h4>
+<p align="center"><a href="https://isspc.pages.dev"><img src="https://github.com/saengwon-kim/isspc/raw/main/frontend/static/kkampain.png" style="height: 5em; vertical-align:middle;" alt="깜빵집" /></a></p>
+
+<h1 align="center">
+깜:빵집
+</h1>
+
+<h4 align="center">
 SPC의 손길이 닿은 제품과 가게를 알아볼 수 있도록 도와줍니다. 
 </h4>
-<p>
+<p align="center">
   <a href="https://github.com/saengwon-kim/isspc/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/saengwon-kim/isspc?style=flat-square" alt="GitHub">
   </a>
@@ -13,9 +18,6 @@ SPC의 손길이 닿은 제품과 가게를 알아볼 수 있도록 도와줍니
     <img src="https://img.shields.io/badge/Cloudflare-F38020?style=flat-square&logo=Cloudflare&logoColor=white" alt="Cloudflare">
   </a>
 </p>
-
-이 프로젝트는 [남양유없 프로젝트](https://isnamyang.nullfull.kr)에서 영감을 받아 진행되었습니다.  
-이 프로젝트의 아이디어와 구현의 많은 부분은 [남양유없 프로젝트의 깃허브 저장소](https://github.com/NullFull/isnamyang)를 참고하였음을 밝힙니다.
 
 ## 구성
 
@@ -58,6 +60,8 @@ SPC의 손길이 닿은 제품과 가게를 알아볼 수 있도록 도와줍니
 
 ## 참고 사항
 
+* 이 프로젝트는 [남양유없 프로젝트](https://isnamyang.nullfull.kr)에서 영감을 받아 진행되었습니다.  
+* 이 프로젝트의 아이디어와 구현의 많은 부분은 [남양유없 프로젝트의 깃허브 저장소](https://github.com/NullFull/isnamyang)를 참고하였음을 밝힙니다.
 * 프로젝트의 로고는 [준하트](https://www.instagram.com/0zun_heart0/)님께서 디자인해주셨으며, 저작권은 디자이너님께 있습니다.
 * 소스코드는 MIT 라이센스로 배포됩니다.
 * 기업 로고의 저작권은 해당 기업에 있습니다.
