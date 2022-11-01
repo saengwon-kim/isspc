@@ -2,12 +2,23 @@ name: deploy
 on: [push]
 jobs:
   backend:
+    name: backend-py
     runs-on: ubuntu-latest
-    name: backend
     steps:
-      - uses: actions/checkout@v2
-      - name: Publish
-        uses: cloudflare/wrangler-action@2.0.0
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
         with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
-          workingDirectory: 'backend'
+          python-version: '3.10.x'
+      - uses: google-github-actions/auth@v0
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+      - uses: google-github-actions/setup-gcloud@v0
+        with:
+          project_id: isspc
+      - run: |
+          cd backend-py
+          pip install -r requirements.txt
+          python manage.py test
+      - run: |
+          cd backend-py
+          gcloud -q app deploy app.yaml
