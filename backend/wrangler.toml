@@ -1,5 +1,8 @@
 name = "isspc-back"
 main = "index.js"
-type = "JavaScript"
+type = "javascript"
 workers_dev = true
 compatibility_date = "2022-10-23"
+kv_namespaces = [
+  { binding = "isspcKV", id = "224fe08fdf304b168d929b2fa4bfc3c7" }
+]

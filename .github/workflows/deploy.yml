@@ -5,9 +5,19 @@ jobs:
     runs-on: ubuntu-latest
     name: backend
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
       - name: Publish
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           workingDirectory: 'backend'
+          preCommands: |
+            npm install
+            npm run get-update
+          postCommands: |
+            wrangler kv:bulk put --binding isspcKV ./updateLists.json

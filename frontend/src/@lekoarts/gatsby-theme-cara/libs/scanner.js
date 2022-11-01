@@ -2,7 +2,6 @@ import './scanner.styl'
 import React, { useState, useRef } from 'react'
 import { DecodeHintType, BrowserMultiFormatReader } from '@zxing/library'
 import activeConfetti from './confetti.js'
-import handleRequest from './static_db.js'
 import Quagga from '@ericblade/quagga2';
 
 const confettiColors = [
@@ -55,9 +54,16 @@ class IsSPC extends React.Component {
     async _isSPC(code) {
         var info = null
         var result = false
-        // info = fetch(`http://isspc-367308.du.r.appspot.com/api/isspc?barcode=${code}`)
-        info = JSON.parse(await handleRequest(code))
-        result = (Object.keys(info).length > 0 ? info.isSPC : false)
+        const response = await fetch(`https://isspc-back.saengwon-kim.workers.dev/?barcode=${code}`)
+        if (response.status == 200) {
+            // info = JSON.parse(await handleRequest(code))
+            info = await response.json()
+            result = (Object.keys(info).length > 0 ? info.isspc : false)
+        } else {
+            alert("바코드 분류 서버가 응답하지 않습니다.")
+            info = {}
+            result = false
+        }
         return { result, info }
     }
 
@@ -337,7 +343,7 @@ class IsSPC extends React.Component {
                                     </div>
                                     <dl>
                                     <dt className="manufact-title">제조원:</dt>
-                                    <dd className="manufact-name">{this.state.itemInfo.content.manufacturer}</dd>
+                                    <dd className="manufact-name">{this.state.itemInfo.manufacturer}</dd>
                                     </dl>
                                     <dl>
                                         <dt className="barcode-title">바코드:</dt>
@@ -359,7 +365,7 @@ class IsSPC extends React.Component {
                                 <>
                                 <dl>
                                     <dt className="prodname-title">제품명:</dt>
-                                    <dd className="prodname-info">{this.state.itemInfo.content.name}</dd>
+                                    <dd className="prodname-info">{this.state.itemInfo.name}</dd>
                                 </dl>
                                 </> :
                                 <></>

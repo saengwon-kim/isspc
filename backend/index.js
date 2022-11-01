@@ -1,25 +1,27 @@
-import allow from "./data/allow.json"
-import block from "./data/block.json"
-
-async function gatherResponse(allow, block, barcode) {
-    let barcode_company = barcode.slice(0, 7);
-    const allow_company = allow.company;
-    const allow_product = allow.product;
-    const block_company = block.company;
-    const block_product = block.product;
-    var res = {};
-    if (barcode_company in allow_company) {
-        res["type"] = "company";
-        res["content"] = allow_company[barcode_company];
+async function gatherResponse(barcode) {
+    var res = [];
+    const barcode_query = [
+        barcode.slice(0, 7),
+        barcode.slice(0, 9),
+        barcode
+    ];
+    res = await Promise.all(
+        barcode_query
+        .map(async (key) => {
+            const value = await isspcKV.get(key, { cacheTtl: 3600 });
+            const result = value ? {"len": key.length, "content": JSON.parse(value)} : null;
+            return result;
+        }));
+    res = res.filter(item => item);
+    var result = {};
+    if (res.length > 0) {
+        res.sort((a, b) => {
+            const diff = 10 * (b["len"] - a["len"]) + b["content"]["isspc"] - a["content"]["isspc"];
+            return diff;
+        });
+        result = res[0]["content"];
     }
-    if (barcode in allow_product) {
-        res["type"] = "product";
-        res["content"] = allow_product[barcode];
-    }
-    if (barcode_company in block_company || barcode in block_product) {
-        res = {};
-    }
-    return JSON.stringify(res);
+    return JSON.stringify(result);
 }
 
 async function handleRequest(request) {
@@ -31,9 +33,8 @@ async function handleRequest(request) {
     };
     const { searchParams } = new URL(request.url);
     let barcode = searchParams.get("barcode");
-    const results = await gatherResponse(allow, block, barcode);
+    const results = await gatherResponse(barcode);
     return new Response(results, init_json);
-    // return new Response(allow, init);
 }
 
 addEventListener("fetch", (event) => {
