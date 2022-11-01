@@ -27,6 +27,17 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-mdx`,
+      options: {},
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `깜:빵집`,

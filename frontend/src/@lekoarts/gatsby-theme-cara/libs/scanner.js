@@ -55,7 +55,7 @@ class IsSPC extends React.Component {
     async _isSPC(code) {
         var info = null
         var result = false
-        // fetch(`https://isspc-back.saengwon-kim.workers.dev/?barcode=${code}`)
+        // info = fetch(`http://isspc-367308.du.r.appspot.com/api/isspc?barcode=${code}`)
         info = JSON.parse(await handleRequest(code))
         result = (Object.keys(info).length > 0 ? info.isSPC : false)
         return { result, info }

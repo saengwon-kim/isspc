@@ -8,17 +8,19 @@ async function gatherResponse(allow, block, barcode) {
     const block_product = block.product;
     var res = {};
     var barcode_company = barcode;
-    for (let i = 0; i < barcode.length; i++) {
-        barcode_company = barcode.slice(0, i);
-        if (barcode_company in allow_company) {
-            res["type"] = "company";
-            res["content"] = allow_company[barcode_company];
-            res["isSPC"] = true;
-        }
-        if (barcode_company in block_company) {
-            res["type"] = "company";
-            res["content"] = block_company[barcode_company];
-            res["isSPC"] = false;
+    if (barcode.length > 6) {
+        for (let i = 7; i < 10; i++) {
+            barcode_company = barcode.slice(0, i);
+            if (barcode_company in allow_company) {
+                res["type"] = "company";
+                res["content"] = allow_company[barcode_company];
+                res["isSPC"] = true;
+            }
+            if (barcode_company in block_company) {
+                res["type"] = "company";
+                res["content"] = block_company[barcode_company];
+                res["isSPC"] = false;
+            }
         }
     }
     if (barcode in allow_product) {

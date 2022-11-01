@@ -11,7 +11,7 @@ exports.createPages = async ({ actions }, themeOptions) => {
   })
 
   createPage ({
-    path: basePath + "news",
-    component: require.resolve(`./src/@lekoarts/gatsby-theme-cara/templates/news.tsx`),
+    path: basePath + "archive",
+    component: require.resolve(`./src/pages/archive/index.tsx`),
   })
 }
