@@ -1,104 +1,122 @@
 {
-    "company": {
-        "8801068": {
-            "manufacturer": "(주)에스피씨삼립"
-        },
-        "880939312": {
-            "manufacturer": "(주)에스피씨삼립"
-        },
-        "8804007": {
-            "manufacturer": "(주)에스피씨삼립"
-        },
-        "880928366": {
-            "manufacturer": "비알코리아(주)"
-        },
-        "880969023": {
-            "manufacturer": "(주)파리크라상"
-        },
-        "880928863": {
-            "manufacturer": "비알코리아(주)"
-        }
+    "8801068": {
+        "type": "company",
+        "manufacturer": "(주)에스피씨삼립"
     },
-    "product": {
-        "8809687080242": {
-            "manufacturer": "주식회사 쓰리제이코퍼레이션 (위탁생산)",
-            "distributor": "에스피씨삼립",
-            "name": "찬 바람이 불어오면 삼립호빵 대형 핫팩"
-        },
-        "8809288633175": {
-            "manufacturer": "비알코리아(주)",
-            "distributor": "비알코리아(주)",
-            "name": "치즈인치즈 베이글칩"
-        },
-        "8809288633281": {
-            "manufacturer": "비알코리아(주)",
-            "distributor": "비알코리아(주)",
-            "name": "엄마는 외계인 초코볼"   
-        },
-        "8809288633045": {
-            "manufacturer": "비알코리아(주)",
-            "distributor": "비알코리아(주)",
-            "name": "BR베리베리스트로베리 우유"
-        },
-        "8809288633786": {
-            "manufacturer": "비알코리아(주)",
-            "distributor": "비알코리아(주)",
-            "name": "베스킨라빈스 초코나무숲 웨하스"
-        },
-        "8801052751566": {
-            "manufacturer": "(주)에스피씨삼립",
-            "distributor": "청정원",
-            "name": "청정원 소프트 미니 치즈케이크"
-        },
-        "00933016": {
-            "manufacturer": "파리바게트",
-            "distributor": "",
-            "name": "아침&딸기우유"
-        },
-        "00535280": {
-            "manufacturer": "파리바게트",
-            "distributor": "",
-            "name": "발사믹오일드레싱"
-        },
-        "00100133": {
-            "manufacturer": "파리바게트",
-            "distributor": "",
-            "name": "부드러운 정통우유 식빵"
-        },
-        "00110004": {
-            "manufacturer": "파리바게트",
-            "distributor": "",
-            "name": "부드러운 우유 모닝롤"
-        },
-        "00910198": {
-            "manufacturer": "파리바게트",
-            "distributor": "",
-            "name": "촉촉한 치즈케익"
-        },
-        "00100001": {
-            "manufacturer": "파리바게트",
-            "distributor": "",
-            "name": "바삭하게 그대로 토스트"
-        },
-        "00110001": {
-            "manufacturer": "파리바게트",
-            "distributor": "",
-            "name": "단팥빵"
-        },
-        "00110214": {
-            "manufacturer": "파리바게트",
-            "distributor": "",
-            "name": "까망베르치즈 듬뿍 치즈후레쉬번"
-        },
-        "00110003": {
-            "manufacturer": "파리바게트",
-            "distributor": "",
-            "name": "땅콩크림빵"
-        },
-        "00122205": {
-            "manufacturer": "파리바게트",
-            "distributor": "",
-            "name": "다섯가지 정성의 맛 화과자명가"
-        }
+    "880939312": {
+        "type": "company",
+        "manufacturer": "(주)에스피씨삼립"
+    },
+    "8804007": {
+        "type": "company",
+        "manufacturer": "(주)에스피씨삼립"
+    },
+    "880928366": {
+        "type": "company",
+        "manufacturer": "비알코리아(주)"
+    },
+    "880969023": {
+        "type": "company",
+        "manufacturer": "(주)파리크라상"
+    },
+    "880928863": {
+        "type": "company",
+        "manufacturer": "비알코리아(주)"
+    },
+    "8809687080242": {
+        "type": "product",
+        "manufacturer": "주식회사 쓰리제이코퍼레이션 (위탁생산)",
+        "distributor": "에스피씨삼립",
+        "name": "찬 바람이 불어오면 삼립호빵 대형 핫팩"
+    },
+    "8809288633175": {
+        "type": "product",
+        "manufacturer": "비알코리아(주)",
+        "distributor": "비알코리아(주)",
+        "name": "치즈인치즈 베이글칩"
+    },
+    "8809288633281": {
+        "type": "product",
+        "manufacturer": "비알코리아(주)",
+        "distributor": "비알코리아(주)",
+        "name": "엄마는 외계인 초코볼"   
+    },
+    "8809288633045": {
+        "type": "product",
+        "manufacturer": "비알코리아(주)",
+        "distributor": "비알코리아(주)",
+        "name": "BR베리베리스트로베리 우유"
+    },
+    "8809288633786": {
+        "type": "product",
+        "manufacturer": "비알코리아(주)",
+        "distributor": "비알코리아(주)",
+        "name": "베스킨라빈스 초코나무숲 웨하스"
+    },
+    "8801052751566": {
+        "type": "product",
+        "manufacturer": "(주)에스피씨삼립",
+        "distributor": "청정원",
+        "name": "청정원 소프트 미니 치즈케이크"
+    },
+    "00933016": {
+        "type": "product",
+        "manufacturer": "파리바게트",
+        "distributor": "",
+        "name": "아침&딸기우유"
+    },
+    "00535280": {
+        "type": "product",
+        "manufacturer": "파리바게트",
+        "distributor": "",
+        "name": "발사믹오일드레싱"
+    },
+    "00100133": {
+        "type": "product",
+        "manufacturer": "파리바게트",
+        "distributor": "",
+        "name": "부드러운 정통우유 식빵"
+    },
+    "00110004": {
+        "type": "product",
+        "manufacturer": "파리바게트",
+        "distributor": "",
+        "name": "부드러운 우유 모닝롤"
+    },
+    "00910198": {
+        "type": "product",
+        "manufacturer": "파리바게트",
+        "distributor": "",
+        "name": "촉촉한 치즈케익"
+    },
+    "00100001": {
+        "type": "product",
+        "manufacturer": "파리바게트",
+        "distributor": "",
+        "name": "바삭하게 그대로 토스트"
+    },
+    "00110001": {
+        "type": "product",
+        "manufacturer": "파리바게트",
+        "distributor": "",
+        "name": "단팥빵"
+    },
+    "00110214": {
+        "type": "product",
+        "manufacturer": "파리바게트",
+        "distributor": "",
+        "name": "까망베르치즈 듬뿍 치즈후레쉬번"
+    },
+    "00110003": {
+        "type": "product",
+        "manufacturer": "파리바게트",
+        "distributor": "",
+        "name": "땅콩크림빵"
+    },
+    "00122205": {
+        "type": "product",
+        "manufacturer": "파리바게트",
+        "distributor": "",
+        "name": "다섯가지 정성의 맛 화과자명가"
     }
 }

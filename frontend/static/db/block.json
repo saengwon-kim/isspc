@@ -1,14 +1,12 @@
 {
-    "company": {
-        "8801234": {
-            "manufacturer": "TMP_BLOCKCOMP"
-        }
+    "8801234": {
+        "type": "company",
+        "manufacturer": "TMP_BLOCKCOMP"
     },
-    "product": {
-        "8801234000000": {
-            "manufacturer": "",
-            "distributor": "",
-            "name": "TMP_BLOCKPROD"
-        }
+    "8801234000000": {
+        "type": "product",
+        "manufacturer": "",
+        "distributor": "",
+        "name": "TMP_BLOCKPROD"
     }
 }
