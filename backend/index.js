@@ -1,7 +1,3 @@
-import db001 from "./db/db001.json"
-
-var db_list = [db001]
-
 async function gatherResponse(barcode) {
     var res = [];
     const barcode_query = [
@@ -9,18 +5,22 @@ async function gatherResponse(barcode) {
         barcode.slice(0, 9),
         barcode
     ];
-    db_list.forEach((db) => {
+    res = await Promise.all(
         barcode_query
-        .map((key) => {
-            if (key in db) {
-                res.push({"len": key.length, "content": db[key]});
-            }
+        .map(async (key) => {
+            const value = await isspcKV.get(key, { cacheTtl: 3600 });
+            const result = value ? {"len": key.length, "content": JSON.parse(value)} : null;
+            return result;
+        }));
+    res = res.filter(item => item);
+    var result = {};
+    if (res.length > 0) {
+        res.sort((a, b) => {
+            const diff = 10 * (b["len"] - a["len"]) + b["content"]["isspc"] - a["content"]["isspc"];
+            return diff;
         });
-    })
-    res.sort((a, b) => {
-        return(10 * (b["len"] - a["len"]) + b["content"]["isspc"] - a["content"]["isspc"]);
-    })
-    const result = res.length > 0 ? res[0]["content"] : {};
+        result = res[0]["content"];
+    }
     return JSON.stringify(result);
 }
 
@@ -28,14 +28,13 @@ async function handleRequest(request) {
     const init_json = {
         headers: {
             "content-type": "application/json;charset=UTF-8",
-            "Access-Control-Allow-Origin": "https://isspc.pages.dev"
+            "Access-Control-Allow-Origin": ["https://isspc.pages.dev", "localhost"]
         }
     };
     const { searchParams } = new URL(request.url);
     let barcode = searchParams.get("barcode");
     const results = await gatherResponse(barcode);
     return new Response(results, init_json);
-    // return new Response(allow, init);
 }
 
 addEventListener("fetch", (event) => {
