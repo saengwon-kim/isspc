@@ -1,39 +1,32 @@
-import allow from "../../../../static/db/allow.json"
-import block from "../../../../static/db/block.json"
+import db001 from "../../../../static/db/db001.json"
+import db002 from "../../../../static/db/db002.json"
 
-async function gatherResponse(allow, block, barcode) {
-    var res = {};
-    var barcode_company = barcode;
-    if (barcode.length > 6) {
-        for (let i = 7; i < 10; i++) {
-            barcode_company = barcode.slice(0, i);
-            if (barcode_company in allow) {
-                res["type"] = "company";
-                res["content"] = allow[barcode_company];
-                res["isSPC"] = true;
+var db_list = [db001, db002]
+
+async function gatherResponse(barcode) {
+    var res = [];
+    const barcode_query = [
+        barcode.slice(0, 7),
+        barcode.slice(0, 9),
+        barcode
+    ];
+    db_list.forEach((db) => {
+        barcode_query
+        .map((key) => {
+            if (key in db) {
+                res.push({"len": key.length, "content": db[key]});
             }
-            if (barcode_company in block) {
-                res["type"] = "company";
-                res["content"] = block[barcode_company];
-                res["isSPC"] = false;
-            }
-        }
-    }
-    if (barcode in allow) {
-        res["type"] = "product";
-        res["content"] = allow[barcode];
-        res["isSPC"] = true;
-    }
-    if (barcode in block) {
-        res["type"] = "product";
-        res["content"] = block[barcode];
-        res["isSPC"] = false;
-    }
-    return JSON.stringify(res);
+        });
+    })
+    res.sort((a, b) => {
+        return(10 * (b["len"] - a["len"]) + b["content"]["isspc"] - a["content"]["isspc"]);
+    })
+    const result = res.length > 0 ? res[0]["content"] : {};
+    return JSON.stringify(result);
 }
 
 async function handleRequest(barcode) {
-    const results = await gatherResponse(allow, block, barcode);
+    const results = await gatherResponse(barcode);
     return results;
 }
 

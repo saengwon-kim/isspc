@@ -57,7 +57,7 @@ class IsSPC extends React.Component {
         var result = false
         // info = fetch(`http://isspc-367308.du.r.appspot.com/api/isspc?barcode=${code}`)
         info = JSON.parse(await handleRequest(code))
-        result = (Object.keys(info).length > 0 ? info.isSPC : false)
+        result = (Object.keys(info).length > 0 ? info.isspc : false)
         return { result, info }
     }
 
@@ -337,7 +337,7 @@ class IsSPC extends React.Component {
                                     </div>
                                     <dl>
                                     <dt className="manufact-title">제조원:</dt>
-                                    <dd className="manufact-name">{this.state.itemInfo.content.manufacturer}</dd>
+                                    <dd className="manufact-name">{this.state.itemInfo.manufacturer}</dd>
                                     </dl>
                                     <dl>
                                         <dt className="barcode-title">바코드:</dt>
@@ -359,7 +359,7 @@ class IsSPC extends React.Component {
                                 <>
                                 <dl>
                                     <dt className="prodname-title">제품명:</dt>
-                                    <dd className="prodname-info">{this.state.itemInfo.content.name}</dd>
+                                    <dd className="prodname-info">{this.state.itemInfo.name}</dd>
                                 </dl>
                                 </> :
                                 <></>
