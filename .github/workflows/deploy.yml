@@ -19,5 +19,4 @@ jobs:
           preCommands: |
             npm install
             npm run get-update
-          postCommands: |
             wrangler kv:bulk put --binding isspcKV ./updateLists.json
