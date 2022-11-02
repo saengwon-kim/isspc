@@ -1,0 +1,9 @@
+#!/bin/bash
+
+GRON="$(which gron)"
+DIFF="$(which diff)"
+
+for f in ./data/*.json
+do
+    "${DIFF}" <( git show HEAD:"${f}" | gron ) <( gron "${f}" ) 
+done
