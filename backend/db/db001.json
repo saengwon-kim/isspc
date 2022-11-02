@@ -1,9 +1,4 @@
-{       
-    "0000000": {
-        "isspc": false,
-        "type": "company",
-        "manufacturer": "TMP_BLOCKCOMP"
-    },
+{
     "8801068": {
         "isspc": true,
         "type": "company",
