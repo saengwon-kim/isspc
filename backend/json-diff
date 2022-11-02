@@ -3,7 +3,7 @@
 GRON="$(which gron)"
 DIFF="$(which diff)"
 
-for f in ./data/*.json
+for f in ./db/*.json
 do
-    "${DIFF}" <( git show HEAD:"${f}" | gron ) <( gron "${f}" ) 
+    "${DIFF}" <( git show HEAD:"${f}" | gron ) <( gron "${f}" ) | grep -o "json\[.*\]" | uniq
 done
