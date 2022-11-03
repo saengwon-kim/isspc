@@ -1,27 +1,8 @@
-@media screen and (max-width: 800px) { // adjust the width for your needs
-    div.brandListDiv {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 0.5rem;
-    }
-    div.projectListDiv {
-        grid-template-columns: 1fr;
-    }
-    div.otherListDiv {
-        grid-template-columns: 1fr;
-    }
-    p.BrandTitle {
-        font-size: calc(40%);
-    }
-    p.BrandChildren {
-        margin: 0;
-    }
-}
-
 .mainh1
     h1 {
         display:table;
     }
-    .span, .text {
+    .mainSpan, .mainText {
         vertical-align:middle;
         display:table-cell;
         padding: 5px;
@@ -31,6 +12,36 @@
     vertical-align:middle;
     display:table-cell;
 }
+
+@media screen and (max-width: 800px) { // adjust the width for your needs
+    div.brandListDiv {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+    }
+    div.brandListDiv > h2 {
+        grid-column: -1/1;
+    }
+    div.projectListDiv {
+        grid-template-columns: 1fr;
+    }
+    div.otherListDiv {
+        grid-template-columns: 1fr;
+    }
+    p.BrandTitle {
+        font-size: calc(50%);
+        font-weight: 500;
+    }
+    p.BrandChildren {
+        margin: 0;
+    }
+    .pageLogo {
+        height: 0.85em;
+    }
+    .mainSpan, .mainText {
+        font-size: 0.85em;
+    }
+}
+
 
 body		{ font-family: 'NanumSquare', sans-serif }
 .normal		{ font-weight: 400 }

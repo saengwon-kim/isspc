@@ -11,7 +11,6 @@ const Footer = () => {
         sx={{
           justifyContent: `center`,
           alignItems: `center`,
-          mt: 3,
           color: `text`,
           fontWeight: `semibold`,
           a: { color: `text` },
@@ -23,7 +22,6 @@ const Footer = () => {
         sx={{
           justifyContent: `center`,
           alignItems: `center`,
-          mt: 3,
           color: `text`,
           fontWeight: `semibold`,
           a: { color: `text` },
@@ -35,7 +33,6 @@ const Footer = () => {
         sx={{
           justifyContent: `center`,
           alignItems: `center`,
-          mt: 3,
           color: `text`,
           fontWeight: `semibold`,
           a: { color: `text` },
