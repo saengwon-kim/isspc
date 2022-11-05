@@ -10,8 +10,8 @@ import ContactMDX from "../sections/contact.mdx"
 const Contact = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
   <div>
     <Divider
-      bg="linear-gradient(to right, SlateBlue 0%, DeepSkyBlue 100%)"
-      sx={{ clipPath: `polygon(0 15%, 100% 25%, 100% 85%, 0 75%)` }}
+      bg="divider"
+      clipPath="polygon(0 16%, 100% 4%, 100% 82%, 0 94%)"
       speed={0.2}
       offset={offset}
       factor={factor}

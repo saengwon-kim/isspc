@@ -5,10 +5,11 @@ type OthersCardProps = {
   link: string
   title: string
   children: React.ReactNode
+  color: string
   bg: string
 }
 
-const OthersCard = ({ link, title, children, bg }: OthersCardProps) => (
+const OthersCard = ({ link, title, children, color, bg }: OthersCardProps) => (
   <div
     sx={{
       width: `100%`,
@@ -18,7 +19,10 @@ const OthersCard = ({ link, title, children, bg }: OthersCardProps) => (
       borderRadius: `lg`,
       px: 4,
       py: [4, 5],
-      color: `background`,
+      color: color || `background`,
+      a: {
+        color: color || `background` 
+      },
       background: bg || `none`,
       transition: `all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important`,
     }}

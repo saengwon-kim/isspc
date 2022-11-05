@@ -17,6 +17,7 @@ const BrandList = ({ offset, factor = 2 }: { offset: number; factor?: number }) 
       <Content speed={0.2} offset={offset + 0.1} factor={factor}>
         <Inner>
           <div
+            id="brandList"
             className="brandListDiv"
             sx={{
               display: `grid`,

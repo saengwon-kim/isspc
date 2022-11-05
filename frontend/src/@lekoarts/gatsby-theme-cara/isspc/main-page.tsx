@@ -11,7 +11,7 @@ import IsSPC from "../libs/scanner"
 const MainPage = ({ offset, factor = 1 }: { offset: number; factor?: number }) => {
   
   return (
-    <div>
+    <div id="main">
     <Content sx={{ variant: `texts.bigger` }} speed={0.4} offset={offset} factor={factor}>
       <Inner>
         <Mainpage />
