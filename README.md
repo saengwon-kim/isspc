@@ -58,6 +58,17 @@ SPC의 손길이 닿은 제품과 가게를 알아볼 수 있도록 도와줍니
 
 * [Cloudflare Workers](https://developers.cloudflare.com/workers/)
 
+## 자주 묻는 질문
+
+* 초점이 잘 맞지 않습니다.
+    - '스캔(업로드)' 기능을 사용해보세요.
+* 앱 출시 계획은 없나요?
+    - 현재는 없습니다. 
+    - 바로가기 기능([사파리](https://support.apple.com/ko-kr/guide/iphone/iph42ab2f3a7/ios), 구글 크롬 등에서 지원)을 활용해보세요.
+* 이 프로젝트에 기여하고 싶습니다.
+    - [SPC 제품 제보](https://docs.google.com/forms/d/e/1FAIpQLSdr1TjcPBSri35YsGrqcraFvvcDMHfxQecyDqA7xbK8feNZ-g/viewform?usp=pp_url), [개발 관련 지원](https://github.com/saengwon-kim/isspc) 모두 환영입니다!
+    - 혹은 주위 사람들에게 이 프로젝트를 알려주세요!
+
 ## 참고 사항
 
 * 이 프로젝트는 [남양유없 프로젝트](https://isnamyang.nullfull.kr)에서 영감을 받아 진행되었습니다.  
