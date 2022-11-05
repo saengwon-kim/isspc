@@ -15,7 +15,7 @@ const Links = ({ offset, factor = 2 }: { offset: number; factor?: number }) => (
       offset={offset}
       factor={factor}
     />
-    <Content speed={ -0.1 } offset={offset - 0.2} factor={factor}>
+    <Content speed={ -0.1 } offset={offset - 0.3} factor={factor}>
       <Inner>
       <div
           className="projectListDiv"

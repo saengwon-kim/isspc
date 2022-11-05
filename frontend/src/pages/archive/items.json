@@ -1,104 +1,164 @@
-{
-    "items": [
-        {
-            "type": "byspc",
-            "title": "1945년 10월",
-            "cardTitle": "상미당 설립"
-        },
-        {
-            "type": "byspc",
-            "title": "1964년",
-            "cardTitle": "식빵 제조 자동화 및 국내 최초 비닐 포장 크림빵 출시"
-        },
-        {
-            "type": "byspc",
-            "title": "1968년 6월",
-            "cardTitle": "삼립식품공업(주)으로 상호 변경"
-        },
-        {
-            "type": "byspc",
-            "title": "1971년 10월",
-            "cardTitle": "삼립호빵 출시"
-        },
-        {
-            "type": "byspc",
-            "title": "1972년 8월",
-            "cardTitle": "한국인터내쇼날식품(주) 설립"
-        },
-        {
-            "type": "byspc",
-            "title": "1977년 10월",
-            "cardTitle": "한국인터내쇼날식품(주)에서 샤니로 상호 변경"
-        },
-        {
-            "type": "byspc",
-            "title": "1983년 10월",
-            "cardTitle": "샤니, 업계 최초 식품기술연구소 설립"
-        },
-        {
-            "type": "byspc",
-            "title": "1985년 4월",
-            "cardTitle": "미국 배스킨라빈스사와 기술제휴"
-        },
-        {
-            "type": "byspc",
-            "title": "1985년 6월",
-            "cardTitle": "비알코리아(주) 설립"
-        },
-        {
-            "type": "byspc",
-            "title": "1985년 10월",
-            "cardTitle": "(주)파리크라상 설립"
-        },
-        {
-            "type": "byspc",
-            "title": "1988년 6월",
-            "cardTitle": "배스킨라빈스 1호점 구반포점 개점"
-        },
-        {
-            "type": "byspc",
-            "title": "1988년 6월",
-            "cardTitle": "파리바게뜨 1호점 광화문점 개점"
-        },
-        {
-            "type": "byspc",
-            "title": "1992년 4월",
-            "cardTitle": "한불제과제빵학원 개원(現 SPC 컬리너리아카데미)"
-        },
-        {
-            "type": "byspc",
-            "title": "1993년 10월",
-            "cardTitle": "던킨도너츠와 기술제휴 계약"
-        },
-        {
-            "type": "byspc",
-            "title": "1994년 1월",
-            "cardTitle": "태인·샤니그룹 출범"
-        },
-        {
-            "type": "byspc",
-            "title": "1998년 12월",
-            "cardTitle": "던킨도너츠 명동점 개점"
-        },
-        {
-            "type": "byspc",
-            "title": "2000년 6월",
-            "cardTitle": "허영인 회장 국민훈장 석류장 수훈 (푸드뱅크 기여 공로)"
-        },
-        {
-            "type": "byspc",
-            "title": "2000년 7월",
-            "cardTitle": "해피포인트 카드 출시"
-        },
-        {
-            "type": "byspc",
-            "title": "2003년 8월",
-            "cardTitle": "창업자 허창성 명예회장 별세"
-        },
-        {
-            "type": "byspc",
-            "title": "2003년 11월",
-            "cardTitle": "이탈리아 에스프레소 전문점 ‘파스쿠찌’ 론칭"
-        }
-    ]
-}
+[
+    {
+        "type": "spc",
+        "date": "1945-10",
+        "title": "상미당 설립"
+    },
+    {
+        "type": "spc",
+        "date": "1968-06",
+        "title": "삼립식품공업(주)으로 상호 변경"
+    },
+    {
+        "type": "spc",
+        "date": "1972-08",
+        "title": "한국인터내쇼날식품(주) 설립"
+    },
+    {
+        "type": "spc",
+        "date": "1977-10",
+        "title": "한국인터내쇼날식품(주)에서 샤니로 상호 변경"
+    },
+    {
+        "type": "spc",
+        "date": "1983-10",
+        "title": "샤니, 업계 최초 식품기술연구소 설립"
+    },
+    {
+        "type": "spc",
+        "date": "1985-04",
+        "title": "미국 배스킨라빈스사와 기술제휴"
+    },
+    {
+        "type": "spc",
+        "date": "1985-06",
+        "title": "비알코리아(주) 설립"
+    },
+    {
+        "type": "spc",
+        "date": "1985-10",
+        "title": "(주)파리크라상 설립"
+    },
+    {
+        "type": "spc",
+        "date": "1988-06",
+        "title": "배스킨라빈스 1호점 구반포점 개점"
+    },
+    {
+        "type": "spc",
+        "date": "1988-06",
+        "title": "파리바게뜨 1호점 광화문점 개점"
+    },
+    {
+        "type": "spc",
+        "date": "1992-04",
+        "title": "한불제과제빵학원 개원(現 SPC 컬리너리아카데미)"
+    },
+    {
+        "type": "spc",
+        "date": "1993-10",
+        "title": "던킨도너츠와 기술제휴 계약"
+    },
+    {
+        "type": "spc",
+        "date": "1994-01",
+        "title": "태인·샤니그룹 출범"
+    },
+    {
+        "type": "spc",
+        "date": "1998-12",
+        "title": "던킨도너츠 명동점 개점"
+    },
+    {
+        "type": "spc",
+        "date": "2000-06",
+        "title": "허영인 회장 국민훈장 석류장 수훈 (푸드뱅크 기여 공로)"
+    },
+    {
+        "type": "spc",
+        "date": "2000-07",
+        "title": "해피포인트 카드 출시"
+    },
+    {
+        "type": "spc",
+        "date": "2003-08",
+        "title": "창업자 허창성 명예회장 별세"
+    },
+    {
+        "type": "spc",
+        "date": "2003-11",
+        "title": "이탈리아 에스프레소 전문점 ‘파스쿠찌’ 론칭"
+    },
+    {
+        "type": "whyrano",
+        "date": "2022-11-04",
+        "title": "SPC삼립, 노동부 서류 무단촬영 사과... \"깊이 반성\"",
+        "link": "https://www.yna.co.kr/view/AKR20221105022200003?input=1195m"
+    },
+    {
+        "type": "whyrano",
+        "date": "2010-02-17",
+        "title": "배스킨라빈스 경품 약속 미루다 망신살",
+        "link": "https://imnews.imbc.com/replay/2010/nwdesk/article/2567801_30521.html"
+    },
+    {
+        "type": "misc",
+        "date": "2018-08-07",
+        "title": "SPC 3세 허희수 부사장, '마약 혐의' 구속... \"경영서 배제\"",
+        "link": "https://www.ytn.co.kr/_ln/0103_201808071809275716"
+    },
+    {
+        "type": "misc",
+        "date": "2020-03-26",
+        "title": "[자막뉴스] 마약해서 물러난 SPC 3세, ‘빵’ 사려고 회사에?",
+        "link": "https://news.kbs.co.kr/news/view.do?ncd=4410730"
+    },
+    {
+        "type": "misc",
+        "date": "2020-04-01",
+        "title": "[현장K] SPC 총수일가, 7억짜리 캐딜락 사적 운행 의혹",
+        "link": "https://news.kbs.co.kr/news/view.do?ncd=4415372"
+    },
+    {
+        "type": "misc",
+        "date": "2021-09-21",
+        "title": "[단독]① 던킨도너츠 공장 제보 영상…반죽에 기름때·시럽통엔 까만 물질",
+        "link": "https://news.kbs.co.kr/news/view.do?ncd=5289989&ref=N"
+    },
+    {
+        "type": "spc",
+        "date": "2022-06-07",
+        "title": "파리바게뜨의 힘... 프랑스 샌드위치 브랜드까지 품었다",
+        "link": "https://n.news.naver.com/article/009/0004974432"
+    },
+    {
+        "type": "protest",
+        "date": "2022-06-07",
+        "title": "프랑스노총 “노동자 탄압으로 알려진 SPC”... 현지서 규탄집회 연다",
+        "link": "https://n.news.naver.com/article/028/0002593472"
+    },
+    {
+        "type": "tragedy",
+        "date": "2022-10-15",
+        "title": "제빵공장서 20대 여성 소스배합 기계에 몸끼임 사망사고",
+        "link": "https://www.seoul.co.kr/news/newsView.php?id=20221015500022&wlog_tag3=naver"
+    },
+    {
+        "type": "tragedy",
+        "date": "2022-10-23",
+        "title": "SPC 계열 '샤니' 제빵공장서 손 끼임 사고... 경찰 조사",
+        "link": "https://www.yna.co.kr/view/AKR20221023021100061?input=1195m"
+    },
+    {
+        "type": "protest",
+        "date": "2022-03-28",
+        "title": "단식에 돌입한 파리바게뜨지회장 “더 이상 우리 조합원들을 괴롭히지 못하게 모든 것을 바치려고 합니다”",
+        "link": "http://worknworld.kctu.org/news/articleView.html?idxno=405301"
+    },
+    {
+        "type": "protest",
+        "date": "2022-11-03",
+        "title": "SPC-노조, 검증기구 구성키로 합의…부당노동행위 관련 대표 사과”",
+        "link": "https://www.hani.co.kr/arti/society/labor/1065572.html"
+    }
+]

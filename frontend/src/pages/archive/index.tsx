@@ -8,7 +8,7 @@ import Content from "../../@lekoarts/gatsby-theme-cara/elements/content"
 // import About from "../@lekoarts/gatsby-theme-cara/isspc/about-news"
 import Seo from "@lekoarts/gatsby-theme-cara/src/components/seo"
 import MDX from "./index.mdx"
-import { Main } from "./timelines"
+import Main from "./branch"
 import Inner from "@lekoarts/gatsby-theme-cara/src/elements/inner"
 
 const Archive = () => (
@@ -19,8 +19,8 @@ const Archive = () => (
           <MDX sx={{ variant: `texts.bigger` }}/>
         </Inner>
       </Content>
-      <Content speed={0.0} offset={1.0} factor={1}>
-        <Main/>
+      <Content speed={0.0} offset={1} factor={1}>
+        <Main />
       </Content>
     </Parallax>
   </Layout>

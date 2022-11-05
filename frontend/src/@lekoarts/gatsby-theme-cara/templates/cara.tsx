@@ -15,14 +15,14 @@ import "../styles/styles.styl"
 const Cara = () => {
   return (
     <Layout>
-      <Parallax pages={10.5}>
+      <Parallax pages={11.2}>
         <MainPage offset={0} factor={1} />
         <BrandList offset={1.2} factor={3.5} />
         <Others offset={4} factor={2} />
         <About offset={6} factor={1} />
         <FAQ offset={7} factor={1} />
-        <Links offset={8.2} factor={1.5} />
-        <Contact offset={9.5} factor={1} />
+        <Links offset={8.2} factor={2} />
+        <Contact offset={10.2} factor={1} />
       </Parallax>
     </Layout>
   )
