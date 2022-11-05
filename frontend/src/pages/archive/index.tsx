@@ -5,11 +5,11 @@ import type { HeadFC } from "gatsby"
 import { Parallax } from "@react-spring/parallax"
 import Layout from "../../@lekoarts/gatsby-theme-cara/components/layout"
 import Content from "../../@lekoarts/gatsby-theme-cara/elements/content"
-// import About from "../@lekoarts/gatsby-theme-cara/isspc/about-news"
 import Seo from "@lekoarts/gatsby-theme-cara/src/components/seo"
 import MDX from "./index.mdx"
 import Main from "./branch"
 import Inner from "@lekoarts/gatsby-theme-cara/src/elements/inner"
+import "../../@lekoarts/gatsby-theme-cara/styles/styles.styl"
 
 const Archive = () => (
   <Layout>
