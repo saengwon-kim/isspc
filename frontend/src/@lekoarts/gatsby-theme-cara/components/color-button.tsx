@@ -9,9 +9,9 @@ const ColorButton = () => {
     }
 
     return (
-    <div sx={{ textAlign: `right`, mb: `10px`, position: `absolute`, bottom: 0, right: 0 }} className="colorButton">
+    <div sx={{ textAlign: `right`, mb: `10px`, position: `absolute`, top: 0, right: 0 }} className="colorButton">
     <button
-        sx={{ variant: `buttons.toggle`, fontWeight: `semibold`, position: 'sticky', mb: `10px`, mr:`10px`, borderRadius: `100%`, p: `15px`, opacity: 0.9 }}
+        sx={{ variant: `buttons.toggle`, fontWeight: `semibold`, position: 'sticky', mt: `10px`, mr:`10px`, borderRadius: `100%`, p: `15px`, opacity: 0.9 }}
         onClick={toggleColorMode}
         type="button"
         aria-label="Toggle dark mode"

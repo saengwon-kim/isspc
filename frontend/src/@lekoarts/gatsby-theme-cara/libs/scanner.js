@@ -308,7 +308,7 @@ class IsSPC extends React.Component {
                     <div ref={this.confettiBox} className="confetti" />
                     {!detected ?
                         <section className="search">
-                            <h1>SPC 제품인지 확인해보세요</h1>
+                            <h1>SPC 제품인지 확인</h1>
                             <div className="remark-notice">
                             아직은 베타버전이며 880으로 시작하는 유통바코드만 분류할 수 있습니다.
                             </div>
