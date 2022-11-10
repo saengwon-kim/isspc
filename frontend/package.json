@@ -18,7 +18,7 @@
     "@lekoarts/gatsby-theme-cara": "^4.0.1",
     "@slack/web-api": "^6.7.2",
     "@zxing/library": "^0.19.1",
-    "gatsby": "^4.24.6",
+    "gatsby": "^4.24.8",
     "gatsby-plugin-google-gtag": "^4.24.0",
     "gatsby-plugin-manifest": "^4.24.0",
     "gatsby-plugin-offline": "^5.24.0",
