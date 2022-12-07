@@ -1,0 +1,39 @@
+name: deploy-dev
+on:
+  push:
+    branches:
+      - dev-frontend
+      - dev
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    name: backend
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Publish
+        uses: cloudflare/wrangler-action@2.0.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          workingDirectory: 'backend'
+          preCommands: |
+            npm install
+            npm run get-update
+            wrangler kv:bulk put --binding isspcKV ./updateLists.json
+  frontend:
+    runs-on: ubuntu-latest
+    name: frontend
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Build
+        - run: npm ci
+        - run: npm run build
