@@ -21,7 +21,7 @@ const Contact = ({ offset, factor = 1 }: { offset: number; factor?: number }) =>
         <ContactMDX />
       </Inner>
     </Content>
-    <Content speed={0} offset={offset}>
+    <Content speed={0} offset={offset} sx={{ zIndex: 101 }}>
       <Footer />
     </Content>
   </div>
