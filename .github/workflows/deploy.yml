@@ -1,5 +1,8 @@
 name: deploy
-on: [push]
+on:
+  push:
+    branches:
+      - main
 jobs:
   backend:
     runs-on: ubuntu-latest
@@ -10,7 +13,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 18
       - name: Publish
         uses: cloudflare/wrangler-action@2.0.0
         with:
