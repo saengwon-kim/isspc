@@ -23,3 +23,25 @@ jobs:
             npm install
             npm run get-update
             wrangler kv:bulk put --binding isspcKV ./updateLists.json
+  frontend:
+    runs-on: ubuntu-latest
+    name: frontend
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Build pages
+        working-directory: ./frontend
+        run: |
+          npm ci
+          npm run build
+      - name: Deploy
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: pages
+          FOLDER: ./frontend/public
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
