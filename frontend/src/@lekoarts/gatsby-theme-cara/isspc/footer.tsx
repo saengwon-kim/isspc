@@ -27,7 +27,7 @@ const Footer = () => {
           a: { color: `text` },
         }}
       >
-      <img width="36" height="36" src="/icons/icon-512x512.png" alt="Logo" /><div sx={{ ml: 1 }}>Logo</div><div sx={{ mx: 1 }}>by</div>{` `}<Link href="https://prfl.link/@0jun_heart0">Jun Heart</Link>
+      <img width="36" src="/kkampain.svg" alt="Logo" sx={{backgroundColor: `#f7fafc`}} /><div sx={{ ml: 1 }}>Logo</div><div sx={{ mx: 1 }}>by</div>{` `}<Link href="https://prfl.link/@0jun_heart0">Jun Heart</Link>
       </Flex>
       <Flex
         sx={{

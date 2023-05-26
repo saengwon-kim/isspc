@@ -58,6 +58,7 @@ const theme = merge(tailwind, {
       MozOsxFontSmoothing: `grayscale`,
       color: `text`,
       backgroundColor: `background`,
+      transition: `all 0.3s ease-in-out !important`,
       a: {
         color: `primary`,
         textDecoration: `none`,
