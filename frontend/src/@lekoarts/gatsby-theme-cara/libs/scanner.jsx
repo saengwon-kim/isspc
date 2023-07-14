@@ -52,7 +52,7 @@ class IsSPC extends React.Component {
     confettiBox = React.createRef()
 
     async _isSPC(code) {
-        var info = null
+        var info = {}
         var result = false
         const response = await fetch(`https://isspc-back.saengwon-kim.workers.dev/?barcode=${code}`)
         if (response.status == 200) {
@@ -88,7 +88,7 @@ class IsSPC extends React.Component {
             isSPC: result,
             itemInfo: info
         }, () => {
-            activeConfetti(this.confettiBox.current, confettiConfig)
+            if (this.state.isSPC) activeConfetti(this.confettiBox.current, confettiConfig);
         })
 
         window.ga && window.ga('send', 'event', 'Barcode', 'search', code)
