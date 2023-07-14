@@ -25,7 +25,7 @@ const main = async () => {
 
   const msg = buildMessage(newReports)
   const slack = new WebClient(process.env.SLACK_TOKEN)
-  const channelId = `to-be-filled`
+  const channelId = 'to-be-filled'
 
   await slack.chat.postMessage({
     channel: channelId,

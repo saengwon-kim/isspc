@@ -1,23 +1,16 @@
 module.exports = {
-  'env': {
-    'browser': true,
-    'es6': true
-  },
-  'extends': 'standard',
-  'globals': {
-    'Atomics': 'readonly',
-    'SharedArrayBuffer': 'readonly'
-  },
-  'parserOptions': {
-    'ecmaFeatures': {
-      'jsx': true
+  parser: '@babel/eslint-parser',
+  parserOptions: {
+    requireConfigFile: false,
+    babelOptions: {
+      babelrc: false,
+      configFile: false,
     },
-    'ecmaVersion': 2018,
-    'sourceType': 'module'
   },
-  'plugins': [
+  ignorePatterns: ['node_modules/*', 'public/*'],
+  plugins: [
     'react'
   ],
-  'rules': {
+  rules: {
   }
 }

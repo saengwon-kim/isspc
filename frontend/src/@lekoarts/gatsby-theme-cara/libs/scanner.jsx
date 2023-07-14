@@ -1,7 +1,7 @@
 import './scanner.styl'
 import React, { useState, useRef } from 'react'
 import { DecodeHintType, BrowserMultiFormatReader } from '@zxing/library'
-import activeConfetti from './confetti.js'
+import activeConfetti from './confetti'
 import Quagga from '@ericblade/quagga2';
 
 const confettiColors = [
