@@ -1,7 +1,7 @@
 import './scanner.styl'
 import React, { useState, useRef } from 'react'
 import { DecodeHintType, BrowserMultiFormatReader } from '@zxing/library'
-import activeConfetti from './confetti.js'
+import activeConfetti from './confetti'
 import Quagga from '@ericblade/quagga2';
 
 const confettiColors = [
@@ -52,7 +52,7 @@ class IsSPC extends React.Component {
     confettiBox = React.createRef()
 
     async _isSPC(code) {
-        var info = null
+        var info = {}
         var result = false
         const response = await fetch(`https://isspc-back.saengwon-kim.workers.dev/?barcode=${code}`)
         if (response.status == 200) {
@@ -88,7 +88,7 @@ class IsSPC extends React.Component {
             isSPC: result,
             itemInfo: info
         }, () => {
-            activeConfetti(this.confettiBox.current, confettiConfig)
+            if (this.state.isSPC) activeConfetti(this.confettiBox.current, confettiConfig);
         })
 
         window.ga && window.ga('send', 'event', 'Barcode', 'search', code)
@@ -225,11 +225,11 @@ class IsSPC extends React.Component {
                         "code_128_reader", "i2of5_reader"] // List of active readers
                 },
             }, (result) => {
-                console.log(result)
+                // console.log(result)
                 try {
                     this.fetchResult(result.codeResult.code);
                 } catch {
-                    console.log("not detected");
+                    // console.log("not detected");
                     alert("이미지에서 바코드를 읽을 수 없습니다");
                 }
             });
@@ -273,7 +273,7 @@ class IsSPC extends React.Component {
             this.reader.reset()
             this.scale = this.initscale
         } catch (error) {
-            console.log(error)
+            // console.log(error)
             this.setState({
                 streamNotSupported: true
             })

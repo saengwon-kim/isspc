@@ -28,7 +28,7 @@ const Archive = () => {
               <MDX sx={{ variant: `texts.bigger` }} />
             </Inner>
             <Inner sx={{ position: `absolute`, bottom: 0, textAlign: `center`, alignContent: `center`}}>
-          <svg
+          {/* <svg
             sx={{ mb: `10px` }}
             xmlns="http://www.w3.org/2000/svg"
             width="80"
@@ -43,7 +43,7 @@ const Archive = () => {
             <g transform='scale(2.0)'>
               <path d="M13 13.586V8h-2v5.586l-2.293-2.293-1.414 1.414L12 17.414l4.707-4.707-1.414-1.414L13 13.586z" />
             </g>
-          </svg>
+          </svg> */}
         </Inner>
           </div>
         </div>

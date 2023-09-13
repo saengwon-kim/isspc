@@ -1,16 +1,17 @@
 {
   "name": "isspc-front",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Is SPC?",
   "main": "index.js",
   "author": "Saengwon Kim <saengwon.kim@gmail.com>",
   "scripts": {
     "build": "gatsby build",
-    "deploy": "netlify deploy --prod -d public",
     "dev": "gatsby develop -H 0.0.0.0",
     "check-new-report": "node scripts/checkNewReport.js",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "lint": "eslint .",
+    "fix-lint": "eslint . --fix"
   },
   "dependencies": {
     "@ericblade/quagga2": "^1.8.2",
@@ -18,22 +19,24 @@
     "@lekoarts/gatsby-theme-cara": "^5",
     "@slack/web-api": "^6",
     "@zxing/library": "^0.20",
-    "react": "^18.2.0",
     "gatsby": "^5",
     "gatsby-plugin-google-gtag": "^5",
     "gatsby-plugin-manifest": "^5",
     "gatsby-plugin-offline": "^6",
     "gatsby-plugin-react-helmet": "^6",
-    "react-helmet": "^6",
     "gatsby-plugin-stylus": "^5",
     "gatsby-source-filesystem": "^5",
+    "got": ">=12.6",
     "isomorphic-unfetch": "^4",
     "papaparse": "^5.4",
-    "got": ">=12.6",
-    "react-dom": "^18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6"
   },
   "devDependencies": {
-    "eslint": "^8.41.0",
+    "@babel/core": "^7.22.9",
+    "@babel/eslint-parser": "^7.22.9",
+    "eslint": "^8.44.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2",
     "eslint-plugin-node": "^11.1.0",

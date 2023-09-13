@@ -1,4 +1,4 @@
-const standardBasePath = `/`
+const standardBasePath = '/'
 
 exports.createPages = async ({ actions }, themeOptions) => {
   const { createPage } = actions
@@ -7,11 +7,11 @@ exports.createPages = async ({ actions }, themeOptions) => {
 
   createPage({
     path: basePath,
-    component: require.resolve(`./src/@lekoarts/gatsby-theme-cara/templates/cara.tsx`),
+    component: require.resolve('./src/@lekoarts/gatsby-theme-cara/templates/cara.tsx')
   })
 
-  createPage ({
-    path: basePath + "archive",
-    component: require.resolve(`./src/pages/archive/index.tsx`),
+  createPage({
+    path: basePath + 'archive',
+    component: require.resolve('./src/pages/archive/index.tsx')
   })
 }

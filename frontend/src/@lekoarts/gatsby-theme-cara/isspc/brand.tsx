@@ -6,7 +6,7 @@ import Content from "../elements/content"
 import BrandListMDX from "../sections/brandlist.mdx"
 
 const BrandList = ({ offset, factor = 2 }: { offset: number; factor?: number }) => (
-    <div>
+    <div id="brandListPage">
       <Divider
         bg="linear-gradient(to right, SlateBlue 0%, DeepSkyBlue 100%)"
         sx={{ clipPath: `polygon(0 15%, 100% 25%, 100% 85%, 0 75%)` }}
@@ -23,6 +23,7 @@ const BrandList = ({ offset, factor = 2 }: { offset: number; factor?: number }) 
               display: `grid`,
               gridTemplateColumns: `repeat(6, 1fr)`,
               gap: 4,
+              scrollMarginTop: `100px`,
               h2: { gridColumn: `-1/1` },
               "div#searchBrandBox": { gridColumn: `-1/1`},
             }}
