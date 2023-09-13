@@ -15,6 +15,13 @@ const confettiColors = [
     '#EE1233',
     '#40C057'
 ]
+
+const confettiColorsSPC = [
+    '#000000',
+    '#808080',
+    '#FFFFFF'
+]
+
 const confettiConfig = {
     angle: 90,
     spread: 290,
@@ -23,6 +30,16 @@ const confettiConfig = {
     decay: 0.8,
     delay: 4000,
     colors: confettiColors
+}
+
+const confettiConfigSPC = {
+    angle: 90,
+    spread: 290,
+    startVelocity: 50,
+    elementCount: 120,
+    decay: 0.8,
+    delay: 4000,
+    colors: confettiColorsSPC
 }
 
 const hints = new Map();
@@ -88,7 +105,7 @@ class IsSPC extends React.Component {
             isSPC: result,
             itemInfo: info
         }, () => {
-            if (this.state.isSPC) activeConfetti(this.confettiBox.current, confettiConfig);
+            this.state.isSPC ? activeConfetti(this.confettiBox.current, confettiConfigSPC) : activeConfetti(this.confettiBox.current, confettiConfig);
         })
 
         window.ga && window.ga('send', 'event', 'Barcode', 'search', code)
