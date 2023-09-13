@@ -1,3 +1,5 @@
 {
     "liveServer.settings.root": "frontend/public",
+    "javascript.validate.enable": false,
+    "eslint.enable": true
 }

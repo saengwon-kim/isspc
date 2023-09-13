@@ -225,11 +225,11 @@ class IsSPC extends React.Component {
                         "code_128_reader", "i2of5_reader"] // List of active readers
                 },
             }, (result) => {
-                console.log(result)
+                // console.log(result)
                 try {
                     this.fetchResult(result.codeResult.code);
                 } catch {
-                    console.log("not detected");
+                    // console.log("not detected");
                     alert("이미지에서 바코드를 읽을 수 없습니다");
                 }
             });
@@ -273,7 +273,7 @@ class IsSPC extends React.Component {
             this.reader.reset()
             this.scale = this.initscale
         } catch (error) {
-            console.log(error)
+            // console.log(error)
             this.setState({
                 streamNotSupported: true
             })

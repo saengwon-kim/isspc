@@ -1,6 +1,6 @@
 {
   "name": "isspc-front",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Is SPC?",
   "main": "index.js",
   "author": "Saengwon Kim <saengwon.kim@gmail.com>",
