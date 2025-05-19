@@ -141,6 +141,34 @@
         "distributor": "",
         "name": "다섯가지 정성의 맛 화과자명가"
     },
+    "8808735677052": {
+        "isspc": true,
+        "type": "product",
+        "manufacturer": "(주)샤니 (위탁생산)",
+        "distributor": "(주)푸드머스",
+        "name": "풀스키즈 딸기잼 쏙빵"
+    },
+    "8808735192722": {
+        "isspc": true,
+        "type": "product",
+        "manufacturer": "(주)샤니 (위탁생산)",
+        "distributor": "(주)푸드머스",
+        "name": "오븐에 구운 마들렌도넛"
+    },
+    "8808735857188": {
+        "isspc": true,
+        "type": "product",
+        "manufacturer": "(주)에스피씨삼립 (위탁생산)",
+        "distributor": "(주)푸드머스",
+        "name": "풀스키친 우리쌀이 들어간 단팥 호빵"
+    },
+    "8808735523182": {
+        "isspc": true,
+        "type": "product",
+        "manufacturer": "(주)샤니 (위탁생산)",
+        "distributor": "(주)푸드머스",
+        "name": "풀스키즈 통밀 앤 통단팥빵"
+    },
     "8801234": {
         "isspc": false,
         "type": "company",
